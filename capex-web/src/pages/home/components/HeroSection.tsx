@@ -130,7 +130,9 @@ const SimpleScaleLayout: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-2xl lg:text-4xl font-bold mb-2 leading-tight"
+              className={`text-2xl lg:text-4xl font-bold mb-2 ${
+                !isMobile ? "sm:ml-30" : ""
+              } leading-tight`}
             >
               Crafting Modern Architecture
             </motion.h1>
@@ -138,7 +140,9 @@ const SimpleScaleLayout: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-lg lg:text-2xl font-light mb-4 leading-tight"
+              className={`text-lg lg:text-2xl font-light mb-10 ${
+                !isMobile ? "sm:ml-30" : ""
+              } leading-tight`}
             >
               For A Better Future.
             </motion.h2>
@@ -146,7 +150,9 @@ const SimpleScaleLayout: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-sm lg:text-lg opacity-90 mb-6 max-w-md leading-relaxed"
+              className={`text-sm lg:text-lg opacity-90 mb-6 ${
+                !isMobile ? "sm:ml-30" : ""
+              } max-w-md leading-relaxed`}
             >
               Custom crafted floor plans and immersive 3D visualizations
               tailored for modern life and future-forward design
@@ -154,7 +160,9 @@ const SimpleScaleLayout: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="pointer-events-auto bg-white text-black px-4 py-2 lg:px-6 lg:py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300"
+              className={`pointer-events-auto bg-white text-black px-4 ${
+                !isMobile ? "sm:ml-30" : ""
+              } py-2 lg:px-6 lg:py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300`}
             >
               Book a Consultation
             </motion.button>
