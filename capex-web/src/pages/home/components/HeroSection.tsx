@@ -93,17 +93,8 @@ const SimpleScaleLayout: React.FC = () => {
     return MainLanding1; // default
   };
 
-  const getCardClass = (i: number) =>
-    [
-      "cursor-pointer relative overflow-hidden rounded-[30px] shadow-lg flex-shrink-0",
-      "transition-all duration-500 ease-out",
-      activeIndex === i && !isMobile
-        ? "w-[329px] h-[236px] -translate-x-14"
-        : "w-[286px] h-[225px] translate-x-0",
-    ].join(" ");
-
   return (
-    <div className="flex flex-col lg:flex-row justify-center gap-8 min-h-screen bg-transparent">
+    <div className="flex flex-col lg:flex-row justify-center gap-4 xl:gap-6 min-h-screen bg-transparent">
       {/* Main image */}
       <div
         style={{
@@ -173,7 +164,7 @@ const SimpleScaleLayout: React.FC = () => {
       {/* Features */}
       <div
         ref={featureColRef}
-        className="relative z-40 w-full lg:w-[320px] flex flex-col mt-6 lg:mt-0"
+        className="relative z-40 w-full lg:w-[320px]  flex flex-col mt-6 lg:mt-0"
       >
         {isMobile ? (
           // Mobile Embla Slider
@@ -210,14 +201,24 @@ const SimpleScaleLayout: React.FC = () => {
           </div>
         ) : (
           // Desktop Column
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 justify-end items-end">
             {features.map((f, i) => (
               <motion.div
                 key={i}
-                className={getCardClass(i)}
+                className="
+    relative right-0 overflow-hidden rounded-[30px] shadow-lg flex-shrink-0 
+    w-[240px] h-[190px]   /* default smaller */
+    md:w-[260px] md:h-[200px]  /* medium screens */
+    lg:w-[290px] lg:h-[225px]  /* full size at large screens */
+    xl:w-[330px] xl:h-[225px]  /* full size at extra large screens */
+    transition-all duration-500 ease-out origin-right
+  "
                 onMouseEnter={() => setActiveIndex(i)}
                 onMouseLeave={() => setActiveIndex(null)}
-                whileHover={{ scale: 1.05 }}
+                animate={{
+                  scaleX: activeIndex === i && !isMobile ? 1.1 : 1, // grow more in X
+                  scaleY: activeIndex === i && !isMobile ? 1.05 : 1, // grow less in Y
+                }}
                 transition={{ type: "spring", stiffness: 200, damping: 20 }}
               >
                 <motion.img
@@ -226,7 +227,7 @@ const SimpleScaleLayout: React.FC = () => {
                   className="w-full h-full object-cover select-none rounded-[30px]"
                   draggable={false}
                   style={{ filter: "brightness(0.55)" }}
-                  whileHover={{ scale: 1.15, filter: "brightness(0.8)" }}
+                  whileHover={{ scale: 1.25, filter: "brightness(0.7)" }}
                   transition={{ duration: 0.4 }}
                 />
                 <div className="absolute bottom-4 left-4 text-white z-10">

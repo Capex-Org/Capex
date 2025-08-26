@@ -4,11 +4,11 @@ import Footer from "./Footer";
 
 export default function MainLayout() {
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground">
+    <div className="flex min-h-screen flex-col bg-background text-foreground ">
       <Header />
 
       {/* shared padding wrapper */}
-      <main className="flex-1 w-full ">
+      <main className="flex-1 w-full  ">
         <Outlet />
       </main>
 

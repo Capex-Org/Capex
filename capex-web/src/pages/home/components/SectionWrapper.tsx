@@ -34,7 +34,9 @@ const SectionWrapper = ({ children }: SectionWrapperProps) => {
       />
 
       {/* Content */}
-      <div className="relative  py-16 px-4 md:px-12 lg:px-12">{children}</div>
+      <div className="relative  py-16 px-4 sm:px-5 md:px-10 lg:px-12">
+        {children}
+      </div>
     </section>
   );
 };

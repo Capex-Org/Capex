@@ -16,47 +16,49 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="absolute top-0 left-0 w-full z-50 px-4 md:px-12 lg:px-12">
-      <div className="flex h-16 items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="font-heading text-3xl font-bold text-white">
-          CAPEX
-        </Link>
+    <header className="absolute top-0 w-full px-4 sm:px-5 md:px-10 lg:px-12 z-50">
+      <div className="max-w-[1559px] mx-auto ">
+        <div className="flex h-16 items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="font-heading text-3xl font-bold text-white">
+            CAPEX
+          </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex gap-6">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              className={({ isActive }) =>
-                cn(
-                  "relative text-[18px] font-medium transition-colors hover:text-primary",
-                  isActive
-                    ? "text-white font-bold after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:bg-primary"
-                    : "text-white"
-                )
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
+          {/* Desktop nav */}
+          <nav className="hidden md:flex gap-6">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                className={({ isActive }) =>
+                  cn(
+                    "relative text-[18px] font-medium transition-colors hover:text-primary",
+                    isActive
+                      ? "text-white font-bold after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:bg-primary"
+                      : "text-white"
+                  )
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </nav>
 
-        {/* Desktop button */}
-        <div className="hidden md:block">
-          <Button size="pill" variant="secondary">
-            <ArrowUpRight /> Contact Us
-          </Button>
+          {/* Desktop button */}
+          <div className="hidden md:block">
+            <Button size="pill" variant="secondary">
+              <ArrowUpRight /> Contact Us
+            </Button>
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden text-white"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
-
-        {/* Mobile menu button */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
       </div>
 
       {/* Mobile dropdown */}
