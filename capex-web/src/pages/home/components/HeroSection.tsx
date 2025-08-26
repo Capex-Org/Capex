@@ -173,7 +173,7 @@ const SimpleScaleLayout: React.FC = () => {
               {features.map((f, i) => (
                 <motion.div
                   key={i}
-                  className="flex-shrink-0 min-w-[300px] min-h-[124px] gap-4"
+                  className="flex-shrink-0 max-w-[300px] min-h-[124px] gap-4"
                   whileHover={{ scale: 1.03 }}
                   transition={{ type: "spring", stiffness: 200, damping: 20 }}
                 >
