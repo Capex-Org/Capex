@@ -94,7 +94,7 @@ const SimpleScaleLayout: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row justify-center gap-4 xl:gap-6 min-h-screen bg-transparent">
+    <div className="flex flex-col  lg:flex-row sm:justify-center gap-4 xl:gap-6 bg-transparent">
       {/* Main image */}
       <div
         style={{
@@ -107,7 +107,7 @@ const SimpleScaleLayout: React.FC = () => {
           <motion.img
             src={getMainImage()}
             alt="Main Landing"
-            className="w-full h-full object-fill max-h-[500px] md:max-h-[727px] rounded-[30px]  select-none pointer-events-none"
+            className="w-full h-full object-fill min-h-[350px]  max-h-[500px] md:max-h-[727px] rounded-[30px]  select-none pointer-events-none"
             style={{ filter: "brightness(0.55)" }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
@@ -173,7 +173,7 @@ const SimpleScaleLayout: React.FC = () => {
               {features.map((f, i) => (
                 <motion.div
                   key={i}
-                  className="flex-shrink-0 min-w-[391px] min-h-[124px] gap-4"
+                  className="flex-shrink-0 min-w-[300px] min-h-[124px] gap-4"
                   whileHover={{ scale: 1.03 }}
                   transition={{ type: "spring", stiffness: 200, damping: 20 }}
                 >

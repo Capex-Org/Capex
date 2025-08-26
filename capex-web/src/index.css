@@ -115,7 +115,6 @@
 @layer utilities {
   .bg-section-gradient {
     background: linear-gradient(180deg, #1F1F1F 4.46%, #383737 60.23%, #4D4C4C 110.86%), #FFECF821;
-    height: 1000px;
     width: 100%;
   }
 }
