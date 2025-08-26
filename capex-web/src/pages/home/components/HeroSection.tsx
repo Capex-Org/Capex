@@ -5,15 +5,15 @@ import useEmblaCarousel from "embla-carousel-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // assets
-import MainLandingMobile from "@/assets/MainLandig.png";
-import MainLanding1 from "@/assets/MainLandig1.png";
-import MainLanding2 from "@/assets/MainLandig2.png";
-import MainLanding3 from "@/assets/MainLandig3.png";
-import MainLanding4 from "@/assets/MainLandig4.png";
+import MainLandingMobile from "@/assets/MainLandig.webp";
+import MainLanding1 from "@/assets/MainLandig1.webp";
+import MainLanding2 from "@/assets/MainLandig2.webp";
+import MainLanding3 from "@/assets/MainLandig3.webp";
+import MainLanding4 from "@/assets/MainLandig4.webp";
 
-import Feature1 from "@/assets/Frame 1000003043.png";
-import Feature2 from "@/assets/Frame 1000003044.png";
-import Feature3 from "@/assets/Frame 1000003042.png";
+import Feature1 from "@/assets/Frame 1000003043.webp";
+import Feature2 from "@/assets/Frame 1000003044.webp";
+import Feature3 from "@/assets/Frame 1000003042.webp";
 import { useIsMobile } from "@/hooks/useIsMobile";
 
 type Feature = { src: string; alt: string; title: string; subtitle: string };
@@ -183,7 +183,8 @@ const SimpleScaleLayout: React.FC = () => {
                       alt={f.alt}
                       className="w-full h-full   max-h-[200px] object-cover  select-none pointer-events-none"
                       draggable={false}
-                      whileHover={{ scale: 1.1, filter: "brightness(1.2)" }}
+                      style={{ filter: "brightness(0.55)" }}
+                      whileHover={{ scale: 1.25, filter: "brightness(0.7)" }}
                       transition={{ duration: 0.4 }}
                     />
                     <div className="absolute bottom-4 left-4 text-white z-10">
