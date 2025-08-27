@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, Phone, X } from "lucide-react";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -47,7 +47,7 @@ export default function Header() {
           {/* Desktop button */}
           <div className="hidden md:block">
             <Button size="pill" variant="secondary">
-              <ArrowUpRight /> Contact Us
+              <Phone /> Contact Us
             </Button>
           </div>
 
@@ -80,7 +80,8 @@ export default function Header() {
             </NavLink>
           ))}
           <Button size="pill" variant="secondary" className="w-full">
-            <ArrowUpRight /> Contact Us
+            <Phone />
+            Contact Us
           </Button>
         </div>
       )}

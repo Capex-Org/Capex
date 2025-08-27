@@ -15,6 +15,7 @@ import Feature1 from "@/assets/Frame 1000003043.webp";
 import Feature2 from "@/assets/Frame 1000003044.webp";
 import Feature3 from "@/assets/Frame 1000003042.webp";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
 
 type Feature = { src: string; alt: string; title: string; subtitle: string };
 
@@ -153,11 +154,23 @@ const SimpleScaleLayout: React.FC = () => {
               whileTap={{ scale: 0.95 }}
               className={`pointer-events-auto bg-white text-black px-4 ${
                 !isMobile ? "sm:ml-30" : ""
-              } py-2 lg:px-6 lg:py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300`}
+              } flex gap-2 py-2 lg:px-6 lg:py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300`}
             >
-              Book a Consultation
+              <ArrowUpRight /> Book a Consultation
             </motion.button>
           </div>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={`pointer-events-auto ${
+              isMobile ? "hidden" : ""
+            } absolute bottom-8 left-0 sm:left-1 xl:left-6
+    bg-white text-black p-3 xl:p-4
+    rounded-full shadow-md
+    hover:bg-gray-100 transition-all duration-300`}
+          >
+            <ArrowDown className="w-5 h-5 lg:w-6 lg:h-6" />
+          </motion.button>
         </div>
       </div>
 
@@ -173,7 +186,7 @@ const SimpleScaleLayout: React.FC = () => {
               {features.map((f, i) => (
                 <motion.div
                   key={i}
-                  className="flex-shrink-0 max-w-[300px] min-h-[124px] gap-4"
+                  className="flex-shrink-0 max-w-[300px] :sm:max-w-[360px] min-h-[124px] gap-8"
                   whileHover={{ scale: 1.03 }}
                   transition={{ type: "spring", stiffness: 200, damping: 20 }}
                 >
@@ -187,13 +200,25 @@ const SimpleScaleLayout: React.FC = () => {
                       whileHover={{ scale: 1.25, filter: "brightness(0.7)" }}
                       transition={{ duration: 0.4 }}
                     />
-                    <div className="absolute bottom-4 left-4 text-white z-10">
-                      <h3 className="text-base font-semibold mb-1 leading-tight">
-                        {f.title}
-                      </h3>
-                      <p className="text-xs opacity-80 leading-relaxed">
-                        {f.subtitle}
-                      </p>
+                    <div className="absolute bottom-4 left-4 right-4 text-white z-10 flex items-center justify-between">
+                      <div className="flex flex-col">
+                        <h3 className="text-lg font-semibold mb-1 leading-tight">
+                          {f.title}
+                        </h3>
+                        <p className="text-sm opacity-80 leading-relaxed">
+                          {f.subtitle}
+                        </p>
+                      </div>
+
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="pointer-events-auto flex items-center justify-center  
+               bg-white text-black p-2 rounded-full shadow-md
+               hover:bg-gray-100 transition-all duration-300"
+                      >
+                        <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6" />
+                      </motion.button>
                     </div>
                   </div>
                 </motion.div>
@@ -208,9 +233,9 @@ const SimpleScaleLayout: React.FC = () => {
                 key={i}
                 className="
     relative right-0 overflow-hidden rounded-[30px] shadow-lg flex-shrink-0 
-    w-[240px] h-[190px]   /* default smaller */
-    md:w-[260px] md:h-[200px]  /* medium screens */
-    lg:w-[290px] lg:h-[225px]  /* full size at large screens */
+    w-[280px] h-[190px]   /* default smaller */
+    md:w-[280px] md:h-[200px]  /* medium screens */
+    lg:w-[300px] lg:h-[225px]  /* full size at large screens */
     xl:w-[330px] xl:h-[225px]  /* full size at extra large screens */
     transition-all duration-500 ease-out origin-right
   "
@@ -225,19 +250,31 @@ const SimpleScaleLayout: React.FC = () => {
                 <motion.img
                   src={f.src}
                   alt={f.alt}
-                  className="w-full h-full object-cover select-none rounded-[30px]"
+                  className="w-full  min-w-[300px] h-full object-cover select-none rounded-[30px]"
                   draggable={false}
                   style={{ filter: "brightness(0.55)" }}
                   whileHover={{ scale: 1.25, filter: "brightness(0.7)" }}
                   transition={{ duration: 0.4 }}
                 />
-                <div className="absolute bottom-4 left-4 text-white z-10">
-                  <h3 className="text-lg font-semibold mb-1 leading-tight">
-                    {f.title}
-                  </h3>
-                  <p className="text-sm opacity-80 leading-relaxed">
-                    {f.subtitle}
-                  </p>
+                <div className="absolute bottom-4 left-4 right-4 text-white z-10 flex items-center justify-between">
+                  <div className="flex flex-col">
+                    <h3 className="text-lg font-semibold mb-1 leading-tight">
+                      {f.title}
+                    </h3>
+                    <p className="text-sm opacity-80 leading-relaxed">
+                      {f.subtitle}
+                    </p>
+                  </div>
+
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="pointer-events-auto flex items-center justify-center  
+               bg-white text-black p-2 rounded-full shadow-md
+               hover:bg-gray-100 transition-all duration-300"
+                  >
+                    <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6" />
+                  </motion.button>
                 </div>
               </motion.div>
             ))}
