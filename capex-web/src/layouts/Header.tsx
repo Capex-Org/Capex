@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Menu, Phone, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 
 const navItems = [
   { label: "Home", path: "/" },
