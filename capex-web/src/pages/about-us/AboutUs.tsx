@@ -1,6 +1,7 @@
 import SectionHeader from "@/components/common/SectionHeader";
 import ImageSection from "./components/ImageSection";
 import MotionText from "@/components/common/MotionText";
+import StatsSection from "./components/StatsSection";
 
 export default function AboutUs() {
   return (
@@ -38,6 +39,7 @@ export default function AboutUs() {
           </MotionText>
         </div>
       </div>
+      <StatsSection />
     </section>
   );
 }
