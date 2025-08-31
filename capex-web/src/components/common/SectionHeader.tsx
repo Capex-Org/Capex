@@ -43,7 +43,7 @@ export default function SectionHeader({
         transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
         viewport={{ once: true }}
         className={`
-          font-['Plus_Jakarta_Sans'] font-normal text-[58px] leading-[80px] tracking-[0.01em] text-neutral-900
+          font-['Plus_Jakarta_Sans'] font-normal md:text-[58px] md:leading-[80px] text-[28px] leading-[40px] tracking-[0.01em] text-neutral-900
         `}
         style={{
           fontVariantNumeric: "lining-nums proportional-nums",
