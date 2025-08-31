@@ -4,9 +4,31 @@ import type { ReactNode } from "react";
 
 interface SectionWrapperProps {
   children: ReactNode;
+  rotateLeft?: number; // rotation angle for left image
+  rotateRight?: number; // rotation angle for right image
+  leftX?: string; // X offset for left image
+  leftY?: string; // Y offset for left image
+  rightX?: string; // X offset for right image
+  rightY?: string; // Y offset for right image
+  leftWidth?: string; // Width for left image
+  leftHeight?: string; // Height for left image
+  rightWidth?: string; // Width for right image
+  rightHeight?: string; // Height for right image
 }
 
-const SectionWrapper = ({ children }: SectionWrapperProps) => {
+const SectionWrapper = ({
+  children,
+  rotateLeft = 0,
+  rotateRight = 0,
+  leftX = "-25%",
+  leftY = "-4%",
+  rightX = "25%",
+  rightY = "35%",
+  leftWidth = "835.83px",
+  leftHeight = "835.83px",
+  rightWidth = "835.83px",
+  rightHeight = "835.83px",
+}: SectionWrapperProps) => {
   return (
     <section className="relative bg-section-gradient w-full overflow-hidden">
       {/* Left corner decorative image */}
@@ -15,9 +37,9 @@ const SectionWrapper = ({ children }: SectionWrapperProps) => {
         alt="effect 1"
         className="absolute top-0 left-0 opacity-100"
         style={{
-          width: "835.83px",
-          height: "835.83px",
-          transform: "translate(-25%,-4%)",
+          width: leftWidth,
+          height: leftHeight,
+          transform: `translate(${leftX},${leftY}) rotate(${rotateLeft}deg)`,
         }}
       />
 
@@ -27,14 +49,14 @@ const SectionWrapper = ({ children }: SectionWrapperProps) => {
         alt="effect 2"
         className="absolute bottom-0 right-0 opacity-100"
         style={{
-          width: "835.83px",
-          height: "835.83px",
-          transform: "translate(25%,35%)",
+          width: rightWidth,
+          height: rightHeight,
+          transform: `translate(${rightX},${rightY}) rotate(${rotateRight}deg)`,
         }}
       />
 
       {/* Content */}
-      <div className="relative  py-16 px-4 sm:px-5 md:px-10 lg:px-12">
+      <div className="relative py-16 px-4 sm:px-5 md:px-10 lg:px-12">
         {children}
       </div>
     </section>
