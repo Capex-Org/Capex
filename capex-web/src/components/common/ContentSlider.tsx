@@ -1,15 +1,20 @@
 import useEmblaCarousel from "embla-carousel-react";
 import type { ReactNode } from "react";
+import Autoplay from "embla-carousel-autoplay";
 
 interface ContentSliderProps {
   items: ReactNode[];
+  delay?: number; 
 }
 
-export default function ContentSlider({ items }: ContentSliderProps) {
-  const [emblaRef] = useEmblaCarousel({
-    loop: true, // 🔑 infinite drag loop
-    align: "start",
-  });
+export default function ContentSlider({
+  items,
+  delay = 3000,
+}: ContentSliderProps) {
+  const [emblaRef] = useEmblaCarousel(
+    { loop: true, align: "start" }, // carousel options
+    [Autoplay({ delay, stopOnMouseEnter: true, stopOnInteraction: false })] // plugins array
+  );
 
   return (
     <div

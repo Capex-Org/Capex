@@ -42,7 +42,7 @@ export default function StatsSection() {
   return (
     <section className="py-16 bg-white w-full">
       <div className="max-w-[1559px] mx-auto flex justify-center">
-        <ContentSlider items={stats} />
+        <ContentSlider items={stats} delay={3000} />
       </div>
     </section>
   );
