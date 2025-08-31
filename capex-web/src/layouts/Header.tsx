@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Menu, Phone, X } from "lucide-react";
+import { Menu, Phone } from "lucide-react";
+import Sidebar from "./Sidebar";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -17,7 +18,7 @@ export default function Header() {
 
   return (
     <header className="absolute top-0 w-full px-4 sm:px-5 md:px-10 lg:px-12 z-50">
-      <div className="max-w-[1559px] mx-auto ">
+      <div className="max-w-[1559px] mx-auto">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="font-heading text-3xl font-bold text-white">
@@ -54,37 +55,20 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             className="md:hidden text-white"
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => setMenuOpen(true)}
           >
-            {menuOpen ? <X size={28} /> : <Menu size={28} />}
+            <Menu size={28} />
           </button>
         </div>
       </div>
 
-      {/* Mobile dropdown */}
-      {menuOpen && (
-        <div className="md:hidden mt-2 bg-black/80 backdrop-blur rounded-lg p-4 space-y-4">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              onClick={() => setMenuOpen(false)}
-              className={({ isActive }) =>
-                cn(
-                  "block text-lg font-medium transition-colors hover:text-primary",
-                  isActive ? "text-primary font-bold" : "text-white"
-                )
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
-          <Button size="pill" variant="secondary" className="w-full">
-            <Phone />
-            Contact Us
-          </Button>
-        </div>
-      )}
+      {/* Sidebar for Mobile */}
+      <Sidebar
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        navItems={navItems}
+        side="right"
+      />
     </header>
   );
 }
