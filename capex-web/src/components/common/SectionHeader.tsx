@@ -27,8 +27,8 @@ export default function SectionHeader({
           viewport={{ once: true }}
           className={`
             flex items-center gap-[17.31px]
-            font-['Plus_Jakarta_Sans'] font-bold text-[26px] leading-[28px] tracking-[0.1em]
-            uppercase text-primary-600
+            font-['Plus_Jakarta_Sans']   text-[26px] leading-[24px] tracking-[0.1em]
+            uppercase text-primary-600 font-[700]
             ${align === "center" ? "justify-center" : ""}
           `}
         >
@@ -43,7 +43,7 @@ export default function SectionHeader({
         transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
         viewport={{ once: true }}
         className={`
-          font-['Plus_Jakarta_Sans'] font-normal md:text-[58px] md:leading-[80px] text-[28px] leading-[40px] tracking-[0.01em] text-neutral-900
+          font-['Plus_Jakarta_Sans'] font-normal md:text-[58px] md:leading-[80px] text-[24px] leading-[40px] tracking-[0.01em] text-neutral-900
         `}
         style={{
           fontVariantNumeric: "lining-nums proportional-nums",
