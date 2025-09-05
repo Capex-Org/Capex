@@ -23,7 +23,7 @@ const SolutionsSection = () => {
         <img
           src={BedroomImg}
           alt="Modern Building"
-          className="rounded-2xl w-full h-[450px] lg:h-[550px] object-fit"
+          className="rounded-2xl w-full h-[350px] lg:h-[550px] object-fit"
         />
       </motion.div>
 
