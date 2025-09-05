@@ -2,6 +2,7 @@ import SectionHeader from "@/components/common/SectionHeader";
 import ImageSection from "./components/ImageSection";
 import MotionText from "@/components/common/MotionText";
 import StatsSection from "./components/StatsSection";
+import SolutionsSection from "./components/SolutionsSection";
 
 export default function AboutUs() {
   return (
@@ -40,6 +41,7 @@ export default function AboutUs() {
         </div>
       </div>
       <StatsSection />
+      <SolutionsSection/>
     </section>
   );
 }
