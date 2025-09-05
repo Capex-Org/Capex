@@ -23,7 +23,7 @@ const SolutionsSection = () => {
         <img
           src={BedroomImg}
           alt="Modern Building"
-          className="rounded-2xl w-full h-[550px] lg:h-[550px] object-fit"
+          className="rounded-2xl w-full h-[450px] lg:h-[550px] object-fit"
         />
       </motion.div>
 
@@ -42,7 +42,7 @@ const SolutionsSection = () => {
         className="text-center lg:text-left max-w-[534px] mx-auto lg:mx-0"
       >
         <h2
-          className="font-[Playfair_Display] font-normal text-[68px] leading-[90px] tracking-[0.015em] text-gray-900"
+          className="font-[Playfair_Display] font-normal text-[34.47px] leading-[42.45px] tracking-[0.015em] lg:text-[68px] lg:leading-[90px] text-gray-900"
           style={{
             fontVariantNumeric: "lining-nums proportional-nums",
             verticalAlign: "middle",
