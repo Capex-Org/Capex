@@ -3,7 +3,7 @@ import BedroomImg from "@/assets/images/aboutus.webp";
 
 const SolutionsSection = () => {
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-12">
+    <section className="grid max-w-[1559px] mx-auto justify-items-center grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-12 px-4 lg:px-8">
       {/* Left Side Image */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -23,7 +23,7 @@ const SolutionsSection = () => {
         <img
           src={BedroomImg}
           alt="Modern Building"
-          className="rounded-2xl bg-none w-full h-[320px] sm:h-[500px] lg:h-[650px] object-cover"
+          className="rounded-2xl w-full h-[450px] lg:h-[550px] object-cover"
         />
       </motion.div>
 
@@ -39,18 +39,19 @@ const SolutionsSection = () => {
           damping: 12,
         }}
         viewport={{ once: true }}
-        className="text-center lg:text-left max-w-xl mx-auto lg:mx-0"
+        className="text-center lg:text-left max-w-[534px] mx-auto lg:mx-0"
       >
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-snug">
+        <h2
+          className="font-[Playfair_Display] font-normal text-[68px] leading-[90px] tracking-[0.015em] text-gray-900"
+          style={{
+            fontVariantNumeric: "lining-nums proportional-nums",
+            verticalAlign: "middle",
+          }}
+        >
           We provide the <span className="italic">best</span>{" "}
           <span className="text-amber-600 italic">solutions</span> for your
           dream home plan<span className="text-amber-600">.</span>
         </h2>
-        <p className="mt-4 text-gray-600 text-sm sm:text-base leading-relaxed">
-          From modern designs to sustainable living, our team ensures that your
-          home is crafted with precision and care. We combine creativity and
-          technical expertise to bring your vision to life.
-        </p>
       </motion.div>
     </section>
   );
