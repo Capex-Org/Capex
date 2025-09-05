@@ -49,8 +49,8 @@ const SolutionsSection = () => {
           }}
         >
           We provide the <span className="italic">best</span>{" "}
-          <span className="text-amber-600 italic">solutions</span> for your
-          dream home plan<span className="text-amber-600">.</span>
+          <span className="text-primary-400 italic">solutions</span> for your
+          dream home plan.
         </h2>
       </motion.div>
     </section>
