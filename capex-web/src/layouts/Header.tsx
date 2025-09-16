@@ -47,7 +47,7 @@ export default function Header() {
 
           {/* Desktop button */}
           <div className="hidden md:block">
-            <Button size="pill" variant="secondary">
+            <Button size="pill" variant="secondary" className="px-6 py-2 rounded-full bg-white text-black font-medium shadow hover:bg-neutral-200 transition items-center gap-2">
               <Phone /> Contact Us
             </Button>
           </div>
