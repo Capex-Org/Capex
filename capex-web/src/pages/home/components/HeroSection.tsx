@@ -94,6 +94,17 @@ const SimpleScaleLayout: React.FC = () => {
     return MainLanding1; // default
   };
 
+  // Scroll to About Us section
+  const scrollToAboutUs = () => {
+    const aboutUsSection = document.getElementById("about-us-section");
+    if (aboutUsSection) {
+      aboutUsSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <div className="flex flex-col  lg:flex-row sm:justify-center gap-4 xl:gap-6 bg-transparent">
       {/* Main image */}
@@ -162,6 +173,7 @@ const SimpleScaleLayout: React.FC = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={scrollToAboutUs}
             className={`pointer-events-auto ${
               isMobile ? "hidden" : ""
             } absolute bottom-8 left-0 sm:left-1 xl:left-6

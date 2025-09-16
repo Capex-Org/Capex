@@ -6,7 +6,10 @@ import SolutionsSection from "./components/SolutionsSection";
 
 export default function AboutUs() {
   return (
-    <section className="bg-white py-16 w-full mx-auto px-4 sm:px-5 md:px-10 lg:px-12">
+    <section
+      id="about-us-section"
+      className="bg-white py-16 w-full mx-auto px-4 sm:px-5 md:px-10 lg:px-12"
+    >
       <div className="w-full max-w-[1559px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Text content */}
         <div>
@@ -41,7 +44,7 @@ export default function AboutUs() {
         </div>
       </div>
       <StatsSection />
-      <SolutionsSection/>
+      <SolutionsSection />
     </section>
   );
 }
