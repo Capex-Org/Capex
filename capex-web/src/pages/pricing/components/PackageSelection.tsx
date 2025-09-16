@@ -164,7 +164,7 @@ const PackageSelection = () => {
 
         {/* Step Indicators - Fixed */}
         <div className="flex-shrink-0 flex justify-center items-center space-x-2 p-8 pt-4">
-          {[0, 1, 2, 3, 4].map((step, index) => (
+          {[0, 1, 2, 3, 4].map((index: number) => (
             <div
               key={index}
               className={`w-3 h-3 rounded-full transition-colors duration-300 ${
