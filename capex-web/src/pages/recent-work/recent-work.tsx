@@ -71,7 +71,7 @@ const RecentWork = () => {
               viewport={{ once: true }}
             >
               <Button
-                className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300"
+                className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-full font-medium transition-all duration-300"
                 size="lg"
               >
                 {projects[0].buttonText}
@@ -159,7 +159,7 @@ const RecentWork = () => {
                 viewport={{ once: true }}
               >
                 <Button
-                  className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300"
+                  className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-full font-medium transition-all duration-300"
                   size="lg"
                 >
                   {projects[0].buttonText}
