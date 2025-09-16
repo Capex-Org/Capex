@@ -171,7 +171,7 @@ const PackageSelection = () => {
                 index === 0
                   ? "bg-green-500"
                   : index <= selectedPackage
-                  ? "bg-blue-500"
+                  ? "bg-primary-500"
                   : "bg-gray-300"
               }`}
             >
