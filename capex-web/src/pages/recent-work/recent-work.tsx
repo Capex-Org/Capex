@@ -1,8 +1,3 @@
-import { motion } from "framer-motion";
-import SectionHeader from "@/components/common/SectionHeader";
-import { Button } from "@/components/ui/button";
-import { ArrowUpRight } from "lucide-react";
-// Import images properly
 import RecentWork1 from "@/assets/images/recentWork1.webp";
 import RecentWork2 from "@/assets/images/recentWork2.webp";
 import RecentWork3 from "@/assets/images/recentWork3.webp";
