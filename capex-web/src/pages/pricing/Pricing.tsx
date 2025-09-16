@@ -6,8 +6,21 @@ const Pricing = () => {
   return (
     <section className="section-white">
       <div className="section-content">
-        <div className="h-screen bg-gray-50 overflow-hidden">
-          <div className="flex h-full">
+        <div className="min-h-screen bg-gray-50">
+          {/* Mobile Layout */}
+          <div className="block lg:hidden">
+            {/* Top Configuration Section */}
+            <PricingNavigation />
+
+            {/* Package Selection */}
+            <PackageSelection />
+
+            {/* Order Summary */}
+            <OrderSummary />
+          </div>
+
+          {/* Desktop Layout */}
+          <div className="hidden lg:flex h-screen overflow-hidden">
             {/* Left Panel - Navigation */}
             <div className="w-1/4 bg-white border-r border-gray-200 overflow-hidden">
               <PricingNavigation />

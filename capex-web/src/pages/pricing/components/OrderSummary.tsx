@@ -14,81 +14,160 @@ const OrderSummary = () => {
   ];
 
   const subtotal = orderItems.reduce((sum, item) => sum + item.amount, 0);
-  const discount = couponCode ? subtotal * 0.1 : 0; // 10% discount if coupon applied
+  const discount = couponCode ? subtotal * 0.1 : 0;
   const total = subtotal - discount;
 
   return (
-    <div className="p-6 h-full flex flex-col">
-      {/* Header */}
-      <div className="mb-6">
-        <h2 className="text-xl font-bold text-gray-900">Order Summary</h2>
-      </div>
+    <div className="bg-white">
+      {/* Mobile Layout */}
+      <div className="lg:hidden">
+        <div className="p-4 border-t border-gray-200">
+          <h2 className="text-lg font-bold text-gray-900 mb-4">
+            Order Summary
+          </h2>
 
-      {/* Order Items */}
-      <div className="flex-1">
-        <div className="space-y-3 mb-6">
-          {orderItems.map((item, index) => (
-            <div key={index} className="flex justify-between items-center">
-              <span className="text-gray-600">{item.name}</span>
-              <span className="font-semibold text-gray-900">
-                ${item.amount.toFixed(2)}
+          {/* Order Items */}
+          <div className="space-y-3 mb-4">
+            {orderItems.map((item, index) => (
+              <div key={index} className="flex justify-between items-center">
+                <span className="text-gray-600 text-sm">{item.name}</span>
+                <span className="font-semibold text-gray-900 text-sm">
+                  ${item.amount.toFixed(2)}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Total */}
+          <div className="border-t border-gray-200 pt-3 mb-4">
+            <div className="flex justify-between items-center">
+              <span className="font-bold text-gray-900">TOTAL</span>
+              <span className="font-bold text-lg text-gray-900">
+                ${total.toFixed(2)}
               </span>
             </div>
-          ))}
-        </div>
-
-        {/* Total */}
-        <div className="border-t border-gray-200 pt-4 mb-6">
-          <div className="flex justify-between items-center">
-            <span className="font-bold text-gray-900">TOTAL</span>
-            <span className="font-bold text-lg text-gray-900">
-              ${total.toFixed(2)}
-            </span>
+            {discount > 0 && (
+              <div className="text-sm text-green-600 mt-1">
+                Discount: -${discount.toFixed(2)}
+              </div>
+            )}
           </div>
-          {discount > 0 && (
-            <div className="text-sm text-green-600 mt-1">
-              Discount: -${discount.toFixed(2)}
+
+          {/* Action Items */}
+          <div className="space-y-3">
+            {/* Coupon Code */}
+            <div className="flex items-center space-x-3">
+              <Tag className="w-4 h-4 text-gray-500" />
+              <input
+                type="text"
+                placeholder="Coupon Code"
+                value={couponCode}
+                onChange={(e) => setCouponCode(e.target.value)}
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
             </div>
-          )}
+
+            {/* Email Quote */}
+            <div className="flex items-center space-x-3">
+              <Mail className="w-4 h-4 text-gray-500" />
+              <input
+                type="email"
+                placeholder="Email Quote"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
+
+            {/* Detailed List */}
+            <button className="w-full flex items-center space-x-3 px-4 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200">
+              <FileText className="w-4 h-4 text-gray-500" />
+              <span className="text-gray-700 font-medium text-sm">
+                Detailed List
+              </span>
+            </button>
+
+            {/* Proceed Button */}
+            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200">
+              Proceed to Checkout
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Action Items */}
-      <div className="space-y-4">
-        {/* Coupon Code */}
-        <div className="flex items-center space-x-3">
-          <Tag className="w-5 h-5 text-gray-500" />
-          <input
-            type="text"
-            placeholder="Coupon Code"
-            value={couponCode}
-            onChange={(e) => setCouponCode(e.target.value)}
-            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          />
+      {/* Desktop Layout */}
+      <div className="hidden lg:flex h-full flex-col">
+        {/* Header - Fixed */}
+        <div className="flex-shrink-0 p-6 pb-4">
+          <h2 className="text-xl font-bold text-gray-900">Order Summary</h2>
         </div>
 
-        {/* Email Quote */}
-        <div className="flex items-center space-x-3">
-          <Mail className="w-5 h-5 text-gray-500" />
-          <input
-            type="email"
-            placeholder="Email Quote"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          />
+        {/* Order Items - Scrollable */}
+        <div className="flex-1 overflow-y-auto px-6">
+          <div className="space-y-3 mb-6">
+            {orderItems.map((item, index) => (
+              <div key={index} className="flex justify-between items-center">
+                <span className="text-gray-600">{item.name}</span>
+                <span className="font-semibold text-gray-900">
+                  ${item.amount.toFixed(2)}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Total */}
+          <div className="border-t border-gray-200 pt-4 mb-6">
+            <div className="flex justify-between items-center">
+              <span className="font-bold text-gray-900">TOTAL</span>
+              <span className="font-bold text-lg text-gray-900">
+                ${total.toFixed(2)}
+              </span>
+            </div>
+            {discount > 0 && (
+              <div className="text-sm text-green-600 mt-1">
+                Discount: -${discount.toFixed(2)}
+              </div>
+            )}
+          </div>
         </div>
 
-        {/* Detailed List */}
-        <button className="w-full flex items-center space-x-3 px-4 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200">
-          <FileText className="w-5 h-5 text-gray-500" />
-          <span className="text-gray-700 font-medium">Detailed List</span>
-        </button>
+        {/* Action Items - Fixed */}
+        <div className="flex-shrink-0 space-y-4 p-6 pt-4">
+          {/* Coupon Code */}
+          <div className="flex items-center space-x-3">
+            <Tag className="w-5 h-5 text-gray-500" />
+            <input
+              type="text"
+              placeholder="Coupon Code"
+              value={couponCode}
+              onChange={(e) => setCouponCode(e.target.value)}
+              className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
 
-        {/* Proceed Button */}
-        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200">
-          Proceed to Checkout
-        </button>
+          {/* Email Quote */}
+          <div className="flex items-center space-x-3">
+            <Mail className="w-5 h-5 text-gray-500" />
+            <input
+              type="email"
+              placeholder="Email Quote"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
+
+          {/* Detailed List */}
+          <button className="w-full flex items-center space-x-3 px-4 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200">
+            <FileText className="w-5 h-5 text-gray-500" />
+            <span className="text-gray-700 font-medium">Detailed List</span>
+          </button>
+
+          {/* Proceed Button */}
+          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200">
+            Proceed to Checkout
+          </button>
+        </div>
       </div>
     </div>
   );
