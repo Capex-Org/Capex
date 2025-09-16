@@ -144,14 +144,11 @@ const SimpleScaleLayout: React.FC = () => {
       >
         <AnimatePresence mode="wait">
           <motion.img
-            key={getMainImage()}
             src={getMainImage()}
             alt="Main Landing"
             className="w-full h-full object-fill min-h-[350px]  max-h-[500px] md:max-h-[727px] rounded-[30px]  select-none pointer-events-none"
             style={{ filter: "brightness(0.55)" }}
-            initial={{ opacity: 0 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
           />
         </AnimatePresence>

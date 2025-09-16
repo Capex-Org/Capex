@@ -35,8 +35,8 @@ const RecentWork = () => {
   ];
 
   return (
-    <section className="bg-white py-16 w-full mx-auto px-4 sm:px-5 md:px-10 lg:px-12">
-      <div className="w-full max-w-[1559px] mx-auto">
+    <section className="section-white">
+      <div className="section-content">
         {/* Main Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Column - Title + Large Project */}

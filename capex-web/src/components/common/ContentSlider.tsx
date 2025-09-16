@@ -4,7 +4,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 interface ContentSliderProps {
   items: ReactNode[];
-  delay?: number; 
+  delay?: number;
 }
 
 export default function ContentSlider({
@@ -17,10 +17,7 @@ export default function ContentSlider({
   );
 
   return (
-    <div
-      className="overflow-hidden w-full max-w-[1559px] mx-auto"
-      ref={emblaRef}
-    >
+    <div className="overflow-hidden section-content" ref={emblaRef}>
       <div className="flex justify-between">
         {items.map((item, index) => (
           <div
