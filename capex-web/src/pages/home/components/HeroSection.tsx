@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -24,6 +24,7 @@ const SimpleScaleLayout: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const featureColRef = useRef<HTMLDivElement>(null);
+  const resizeObserverRef = useRef<ResizeObserver | null>(null);
   const [featureColHeight, setFeatureColHeight] = useState<number | null>(null);
 
   useEffect(() => {
@@ -70,32 +71,58 @@ const SimpleScaleLayout: React.FC = () => {
     };
     emblaApi.on("select", onSelect);
     onSelect();
+
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
   }, [emblaApi]);
 
   // Keep main image height equal to feature column height (desktop only)
   useEffect(() => {
     if (!isMobile && featureColRef.current) {
-      const resizeObserver = new ResizeObserver((entries) => {
+      // Clean up existing observer
+      if (resizeObserverRef.current) {
+        resizeObserverRef.current.disconnect();
+      }
+
+      resizeObserverRef.current = new ResizeObserver((entries) => {
         for (const entry of entries) {
-          setFeatureColHeight(entry.contentRect.height);
+          const newHeight = entry.contentRect.height;
+          setFeatureColHeight((prev) =>
+            prev !== newHeight ? newHeight : prev
+          );
         }
       });
-      resizeObserver.observe(featureColRef.current);
-      return () => resizeObserver.disconnect();
+
+      resizeObserverRef.current.observe(featureColRef.current);
+
+      return () => {
+        if (resizeObserverRef.current) {
+          resizeObserverRef.current.disconnect();
+          resizeObserverRef.current = null;
+        }
+      };
+    } else {
+      // Clean up observer when switching to mobile
+      if (resizeObserverRef.current) {
+        resizeObserverRef.current.disconnect();
+        resizeObserverRef.current = null;
+      }
+      setFeatureColHeight(null);
     }
   }, [isMobile]);
 
   // Choose main image based on hover or mobile index
-  const getMainImage = () => {
+  const getMainImage = useCallback(() => {
     if (isMobile) return MainLandingMobile;
     if (activeIndex === 0) return MainLanding2;
     if (activeIndex === 1) return MainLanding3;
     if (activeIndex === 2) return MainLanding4;
     return MainLanding1; // default
-  };
+  }, [isMobile, activeIndex]);
 
   // Scroll to About Us section
-  const scrollToAboutUs = () => {
+  const scrollToAboutUs = useCallback(() => {
     const aboutUsSection = document.getElementById("about-us-section");
     if (aboutUsSection) {
       aboutUsSection.scrollIntoView({
@@ -103,7 +130,7 @@ const SimpleScaleLayout: React.FC = () => {
         block: "start",
       });
     }
-  };
+  }, []);
 
   return (
     <div className="flex flex-col  lg:flex-row sm:justify-center gap-4 xl:gap-6 bg-transparent">
@@ -117,11 +144,14 @@ const SimpleScaleLayout: React.FC = () => {
       >
         <AnimatePresence mode="wait">
           <motion.img
+            key={getMainImage()}
             src={getMainImage()}
             alt="Main Landing"
             className="w-full h-full object-fill min-h-[350px]  max-h-[500px] md:max-h-[727px] rounded-[30px]  select-none pointer-events-none"
             style={{ filter: "brightness(0.55)" }}
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
           />
         </AnimatePresence>
