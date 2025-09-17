@@ -1,3 +1,9 @@
+// Import package images
+import pk1 from "@/assets/images/packages/pk1.webp";
+import pk2 from "@/assets/images/packages/pk2.webp";
+import pk3 from "@/assets/images/packages/pk3.webp";
+import pk4 from "@/assets/images/packages/pk4.webp";
+
 export interface ProjectType {
   id: string;
   title: string;
@@ -146,28 +152,28 @@ export const packages: Package[] = [
     id: 0,
     name: "Bedroom Package",
     description: "Complete bedroom design with furniture and decor",
-    image: "/api/placeholder/300/200",
+    image: pk1,
     price: 15000,
   },
   {
     id: 1,
     name: "Living Room Package",
     description: "Modern living room with seating and entertainment",
-    image: "/api/placeholder/300/200",
+    image: pk2,
     price: 20000,
   },
   {
     id: 2,
     name: "Family Room Package",
     description: "Spacious family room for gatherings and relaxation",
-    image: "/api/placeholder/300/200",
+    image: pk4,
     price: 25000,
   },
   {
     id: 3,
     name: "Kitchen Package",
     description: "Complete kitchen renovation with modern appliances",
-    image: "/api/placeholder/300/200",
+    image: pk3,
     price: 30000,
   },
   {
@@ -207,28 +213,28 @@ export const stepItems: { [key: string]: StepItem[] } = {
       id: 0,
       name: "Basic Package",
       description: "Essential features and standard materials",
-      image: "/api/placeholder/300/200",
+      image: pk1,
       price: 25000,
     },
     {
       id: 1,
       name: "Standard Package",
       description: "Quality materials with modern finishes",
-      image: "/api/placeholder/300/200",
+      image: pk2,
       price: 35000,
     },
     {
       id: 2,
       name: "Premium Package",
       description: "High-end materials and luxury finishes",
-      image: "/api/placeholder/300/200",
+      image: pk3,
       price: 50000,
     },
     {
       id: 3,
       name: "Custom Package",
       description: "Fully customized to your specifications",
-      image: "/api/placeholder/300/200",
+      image: pk4,
       price: 75000,
     },
   ],
@@ -237,28 +243,28 @@ export const stepItems: { [key: string]: StepItem[] } = {
       id: 0,
       name: "Basic Design",
       description: "Simple layout with standard fixtures",
-      image: "/api/placeholder/300/200",
+      image: pk1,
       price: 2000,
     },
     {
       id: 1,
       name: "Modern Design",
       description: "Contemporary style with clean lines",
-      image: "/api/placeholder/300/200",
+      image: pk2,
       price: 4000,
     },
     {
       id: 2,
       name: "Luxury Design",
       description: "High-end finishes and premium materials",
-      image: "/api/placeholder/300/200",
+      image: pk3,
       price: 7000,
     },
     {
       id: 3,
       name: "Custom Design",
       description: "Personalized design tailored to your needs",
-      image: "/api/placeholder/300/200",
+      image: pk4,
       price: 10000,
     },
   ],

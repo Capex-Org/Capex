@@ -22,8 +22,6 @@ const PackageSelection = ({
   const [selectedPackage, setSelectedPackage] = useState<number>(0);
 
   const handlePackageSelect = (pkgId: number) => {
-    console.log("Package selected:", pkgId);
-
     // Get current step name
     const project = getProjectTypeById(selectedProjectType);
     const stepName = project?.steps[currentStep];
@@ -69,10 +67,8 @@ const PackageSelection = ({
             <div
               key={pkg.id}
               onClick={() => handlePackageSelect(pkg.id)}
-              className={`relative cursor-pointer transition-all duration-300 border-2 ${
-                currentStepSelectedItem === pkg.id
-                  ? "scale-105 ring-2 ring-primary-500 border-primary-500"
-                  : "hover:scale-102 border-transparent hover:border-gray-300"
+              className={`relative cursor-pointer transition-all duration-300 ${
+                currentStepSelectedItem === pkg.id ? "mt-2" : ""
               }`}
             >
               <div
@@ -83,8 +79,13 @@ const PackageSelection = ({
                 }`}
               >
                 <div className="flex gap-4">
-                  <div className="w-24 h-24 bg-gray-300 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-gray-500 text-xs">3D</span>
+                  <div className="w-24 h-24 rounded-lg flex-shrink-0 overflow-hidden">
+                    <img
+                      key={`${pkg.id}-${currentStep}-${selectedProjectType}`}
+                      src={pkg.image}
+                      alt={pkg.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-900 text-sm mb-1">
@@ -97,22 +98,6 @@ const PackageSelection = ({
                   </div>
                 </div>
               </div>
-
-              {currentStepSelectedItem === pkg.id && (
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-4 h-4 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-              )}
             </div>
           ))}
         </div>
@@ -137,10 +122,8 @@ const PackageSelection = ({
                 <div
                   key={pkg.id}
                   onClick={() => handlePackageSelect(pkg.id)}
-                  className={`relative cursor-pointer transition-all duration-300 border-2 ${
-                    currentStepSelectedItem === pkg.id
-                      ? "scale-105 ring-2 ring-primary-500 border-primary-500"
-                      : "hover:scale-102 border-transparent hover:border-gray-300"
+                  className={`relative cursor-pointer transition-all duration-300 ${
+                    currentStepSelectedItem === pkg.id ? "mt-2" : ""
                   }`}
                 >
                   <div
@@ -150,8 +133,13 @@ const PackageSelection = ({
                         : "bg-gray-200 hover:shadow-xl"
                     }`}
                   >
-                    <div className="aspect-square bg-gray-300 rounded-lg mb-3 flex items-center justify-center">
-                      <span className="text-gray-500 text-sm">3D Render</span>
+                    <div className="aspect-square rounded-lg mb-3 overflow-hidden">
+                      <img
+                        key={`desktop-${pkg.id}-${currentStep}-${selectedProjectType}`}
+                        src={pkg.image}
+                        alt={pkg.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <h3 className="font-semibold text-gray-900 text-sm">
                       {pkg.name}
@@ -163,22 +151,6 @@ const PackageSelection = ({
                       ${pkg.price?.toLocaleString() || "0"}
                     </p>
                   </div>
-
-                  {currentStepSelectedItem === pkg.id && (
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                      <svg
-                        className="w-4 h-4 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
