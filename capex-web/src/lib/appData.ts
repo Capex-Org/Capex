@@ -445,7 +445,7 @@ export const projectTypes: ProjectType[] = [
             name: "Medium (400-600 sq ft)",
             description: "Standard garage conversion",
             image: aboutusImg,
-            price: 2000,
+            price: 1000,
           },
           {
             id: 2,
