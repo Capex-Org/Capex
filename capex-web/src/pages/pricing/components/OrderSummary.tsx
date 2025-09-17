@@ -1,21 +1,25 @@
 import { useState } from "react";
 import { Tag, Mail, FileText } from "lucide-react";
+import { calculateTotalPrice, getRelevantOrderItems } from "@/lib/appData";
 
-const OrderSummary = () => {
+interface OrderSummaryProps {
+  selectedItems: { [stepName: string]: number };
+  selectedProjectType: string;
+}
+
+const OrderSummary = ({
+  selectedItems,
+  selectedProjectType,
+}: OrderSummaryProps) => {
   const [couponCode, setCouponCode] = useState("");
   const [email, setEmail] = useState("");
 
-  const orderItems = [
-    { name: "Price", amount: 319.98 },
-    { name: "Design", amount: 31.9 },
-    { name: "Area", amount: 31.9 },
-    { name: "Site Visit", amount: 0.0 },
-    { name: "Additional", amount: 0.0 },
-  ];
-
-  const subtotal = orderItems.reduce((sum, item) => sum + item.amount, 0);
+  const subtotal = calculateTotalPrice(selectedItems, selectedProjectType);
   const discount = couponCode ? subtotal * 0.1 : 0;
   const total = subtotal - discount;
+
+  // Get relevant order items for the current project type
+  const orderItems = getRelevantOrderItems(selectedItems, selectedProjectType);
 
   return (
     <div className="bg-white">
