@@ -56,19 +56,37 @@ const PricingNavigation = ({
           ))}
         </div>
 
-        {/* Mobile: Description */}
-        <div className="p-4 bg-gray-50">
-          <p className="text-gray-600 text-sm leading-relaxed">
-            {expandedItem
-              ? projectTypes.find((item) => item.id === expandedItem)
+        {/* Mobile: Project Info */}
+        <div
+          className={`p-4 transition-colors ${
+            expandedItem ? "bg-primary-50" : "bg-gray-50"
+          }`}
+        >
+          {expandedItem ? (
+            <div>
+              <h3 className="text-lg font-semibold text-primary-600 mb-2">
+                {projectTypes.find((item) => item.id === expandedItem)?.title}
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {projectTypes.find((item) => item.id === expandedItem)
                   ?.description ||
-                "Convert your garage into a functional living space or build on top of it. Take advantage of state regulations and affordable construction costs."
-              : "Select a project type above to see details and configure your options."}
-          </p>
+                  "Convert your garage into a functional living space or build on top of it. Take advantage of state regulations and affordable construction costs."}
+              </p>
+            </div>
+          ) : (
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Select a project type above to see details and configure your
+              options.
+            </p>
+          )}
         </div>
 
         {/* Mobile: Progress Steps */}
-        <div className="p-4 bg-white border-b border-gray-200">
+        <div
+          className={`p-4 border-b border-gray-200 transition-colors ${
+            expandedItem ? "bg-primary-50" : "bg-white"
+          }`}
+        >
           {expandedItem ? (
             <div className="relative flex items-center justify-between">
               {/* Horizontal connecting line */}
