@@ -148,7 +148,7 @@ const PricingNavigation = ({
                           : "text-gray-500"
                       }`}
                     >
-                      {step}
+                      {step.name}
                     </span>
                   </button>
                 ))}
@@ -257,7 +257,7 @@ const PricingNavigation = ({
                                 : "text-gray-500"
                             }`}
                           >
-                            {step}
+                            {step.name}
                           </span>
                         </button>
                       ))}

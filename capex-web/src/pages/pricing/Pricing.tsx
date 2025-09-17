@@ -18,10 +18,10 @@ const Pricing = () => {
     if (project) {
       // Set default selection for Package step (first step)
       const packageStep = project.steps[0];
-      if (packageStep && !selectedItems[packageStep]) {
+      if (packageStep && !selectedItems[packageStep.name]) {
         setSelectedItems((prev) => ({
           ...prev,
-          [packageStep]: 0, // Select first item (Basic Package)
+          [packageStep.name]: 0, // Select first item (Basic Package)
         }));
       }
     }

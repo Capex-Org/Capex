@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-  packages,
   getStepTitle,
   getCurrentStepItems,
   getProjectTypeById,
@@ -24,7 +23,7 @@ const PackageSelection = ({
   const handlePackageSelect = (pkgId: number) => {
     // Get current step name
     const project = getProjectTypeById(selectedProjectType);
-    const stepName = project?.steps[currentStep];
+    const stepName = project?.steps[currentStep]?.name;
 
     if (stepName) {
       // Check if this item is already selected for this step
@@ -44,14 +43,14 @@ const PackageSelection = ({
 
   // Get current step name and check if there's a selected item for this step
   const project = getProjectTypeById(selectedProjectType);
-  const currentStepName = project?.steps[currentStep];
+  const currentStepName = project?.steps[currentStep]?.name;
   const currentStepSelectedItem = currentStepName
     ? selectedItems[currentStepName]
     : undefined;
 
   // Get items for current step
   const currentItems = getCurrentStepItems(selectedProjectType, currentStep);
-  const displayItems = currentItems.length > 0 ? currentItems : packages;
+  const displayItems = currentItems.length > 0 ? currentItems : [];
 
   return (
     <div className="bg-white">
@@ -63,7 +62,7 @@ const PackageSelection = ({
 
         {/* Mobile: Single Column Grid */}
         <div className="space-y-4 max-h-[60vh] overflow-y-auto">
-          {displayItems.map((pkg) => (
+          {displayItems.map((pkg: any) => (
             <div
               key={pkg.id}
               onClick={() => handlePackageSelect(pkg.id)}
@@ -118,7 +117,7 @@ const PackageSelection = ({
         <div className="flex-1 overflow-y-auto px-8">
           <div className="max-h-[60vh] overflow-y-auto">
             <div className="grid grid-cols-2 gap-6 max-w-2xl mx-auto pb-4">
-              {displayItems.map((pkg) => (
+              {displayItems.map((pkg: any) => (
                 <div
                   key={pkg.id}
                   onClick={() => handlePackageSelect(pkg.id)}

@@ -36,7 +36,7 @@ const OrderSummary = ({
               <div key={index} className="flex justify-between items-center">
                 <span className="text-gray-600 text-sm">{item.name}</span>
                 <span className="font-semibold text-gray-900 text-sm">
-                  ${item.amount.toFixed(2)}
+                  ${item.price.toFixed(2)}
                 </span>
               </div>
             ))}
@@ -113,7 +113,7 @@ const OrderSummary = ({
               <div key={index} className="flex justify-between items-center">
                 <span className="text-gray-600">{item.name}</span>
                 <span className="font-semibold text-gray-900">
-                  ${item.amount.toFixed(2)}
+                  ${item.price.toFixed(2)}
                 </span>
               </div>
             ))}
