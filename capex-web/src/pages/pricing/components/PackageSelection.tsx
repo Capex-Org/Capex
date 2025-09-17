@@ -61,7 +61,7 @@ const PackageSelection = ({
         </h2>
 
         {/* Mobile: Single Column Grid */}
-        <div className="space-y-4 max-h-[60vh] overflow-y-auto">
+        <div className="space-y-4 max-h-[80vh] overflow-y-auto">
           {displayItems.map((pkg: any) => (
             <div
               key={pkg.id}
@@ -115,7 +115,7 @@ const PackageSelection = ({
 
         {/* Package Grid - Scrollable with Max Height */}
         <div className="flex-1 overflow-y-auto px-8">
-          <div className="max-h-[60vh] overflow-y-auto">
+          <div className="max-h-[80vh] overflow-y-auto">
             <div className="grid grid-cols-2 gap-6 max-w-2xl mx-auto pb-4">
               {displayItems.map((pkg: any) => (
                 <div
