@@ -1,15 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PricingNavigation from "./components/PricingNavigation";
 import PackageSelection from "./components/PackageSelection";
 import OrderSummary from "./components/OrderSummary";
+import { getProjectTypeById } from "@/lib/appData";
 
 const Pricing = () => {
   const [selectedProjectType, setSelectedProjectType] =
     useState<string>("Detached ADU");
-  const [currentStep, setCurrentStep] = useState<number>(1);
+  const [currentStep, setCurrentStep] = useState<number>(0);
   const [selectedItems, setSelectedItems] = useState<{
     [stepName: string]: number;
   }>({});
+
+  // Set default selections when project type changes
+  useEffect(() => {
+    const project = getProjectTypeById(selectedProjectType);
+    if (project) {
+      // Set default selection for Package step (first step)
+      const packageStep = project.steps[0];
+      if (packageStep && !selectedItems[packageStep]) {
+        setSelectedItems((prev) => ({
+          ...prev,
+          [packageStep]: 0, // Select first item (Basic Package)
+        }));
+      }
+    }
+  }, [selectedProjectType]);
 
   const handleItemSelect = (stepName: string, itemId: number) => {
     setSelectedItems((prev) => {
@@ -39,6 +55,7 @@ const Pricing = () => {
               setSelectedProjectType={setSelectedProjectType}
               currentStep={currentStep}
               setCurrentStep={setCurrentStep}
+              selectedItems={selectedItems}
             />
 
             {/* Package Selection */}
@@ -65,6 +82,7 @@ const Pricing = () => {
                 setSelectedProjectType={setSelectedProjectType}
                 currentStep={currentStep}
                 setCurrentStep={setCurrentStep}
+                selectedItems={selectedItems}
               />
             </div>
 

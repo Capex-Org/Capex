@@ -7,6 +7,7 @@ interface PricingNavigationProps {
   setSelectedProjectType: (type: string) => void;
   currentStep: number;
   setCurrentStep: (step: number) => void;
+  selectedItems: { [stepName: string]: number };
 }
 
 const PricingNavigation = ({
@@ -14,8 +15,9 @@ const PricingNavigation = ({
   setSelectedProjectType,
   currentStep,
   setCurrentStep,
+  selectedItems,
 }: PricingNavigationProps) => {
-  const [expandedItem, setExpandedItem] = useState<string>("Detached ADU");
+  const [expandedItem, setExpandedItem] = useState<string>("");
 
   const toggleExpanded = (itemId: string) => {
     if (expandedItem === itemId) {
@@ -36,6 +38,13 @@ const PricingNavigation = ({
     }
   }, [selectedProjectType]);
 
+  // Auto-expand when there are selected items
+  React.useEffect(() => {
+    if (Object.keys(selectedItems).length > 0 && !expandedItem) {
+      setExpandedItem(selectedProjectType);
+    }
+  }, [selectedItems, selectedProjectType, expandedItem]);
+
   return (
     <div className="bg-white">
       {/* Mobile: Horizontal Tabs */}
@@ -44,11 +53,14 @@ const PricingNavigation = ({
           {projectTypes.map((item) => (
             <button
               key={item.id}
-              onClick={() => toggleExpanded(item.id)}
+              onClick={() =>
+                expandedItem !== item.id && toggleExpanded(item.id)
+              }
+              disabled={expandedItem === item.id}
               className={`flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 transition-colors ${
                 expandedItem === item.id
-                  ? "border-primary-600 text-primary-600 bg-primary-50"
-                  : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                  ? "border-primary-600 text-primary-600 bg-primary-50 cursor-default"
+                  : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 cursor-pointer"
               }`}
             >
               {item.title}
@@ -156,11 +168,14 @@ const PricingNavigation = ({
         {projectTypes.map((item) => (
           <div key={item.id} className="mb-4">
             <button
-              onClick={() => toggleExpanded(item.id)}
+              onClick={() =>
+                expandedItem !== item.id && toggleExpanded(item.id)
+              }
+              disabled={expandedItem === item.id}
               className={`w-full text-left p-4 rounded-lg transition-colors duration-200 ${
                 expandedItem === item.id
-                  ? "bg-amber-100 text-gray-900"
-                  : "text-gray-700 hover:bg-gray-50"
+                  ? "bg-amber-100 text-gray-900 cursor-default"
+                  : "text-gray-700 hover:bg-gray-50 cursor-pointer"
               }`}
             >
               <div className="flex items-center justify-between">
