@@ -6,8 +6,8 @@ import TestimonialSection from "./components/TestimonialSection";
 
 const Company = () => {
   return (
-    <section className="">
-      <div className="section-content section-white">
+    <>
+      <div className="section-content section-white bg-white">
         {/* Our Story Section */}
         <OurStorySection />
 
@@ -18,13 +18,13 @@ const Company = () => {
         <TeamSection />
       </div>
 
-        {/* Testimonial Section */}
-        <TestimonialSection />
-        <div className="section-content section-white">
+      {/* Testimonial Section */}
+      <TestimonialSection />
+      <div className="section-content section-white">
         {/* Contact Section */}
         <ContactSection />
       </div>
-    </section>
+    </>
   );
 };
 

@@ -8,7 +8,7 @@ export default function MainLayout() {
       <Header />
 
       {/* shared padding wrapper */}
-      <main className="flex-1 w-full  ">
+      <main className="flex-1 w-full  bg-white ">
         <Outlet />
       </main>
 
