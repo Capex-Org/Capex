@@ -6,7 +6,6 @@ interface StarRatingProps {
 }
 
 const StarRating = ({
-  rating,
   maxRating = 5,
   size = "md",
   className = "",

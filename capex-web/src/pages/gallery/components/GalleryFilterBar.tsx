@@ -17,8 +17,8 @@ const GalleryFilterBar = ({
   selectedCategory,
 }: GalleryFilterBarProps) => {
   return (
-    <div className="bg-white border-b border-gray-200 py-4">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="bg-white  py-4">
+      <div className=" ">
         {/* Desktop Layout */}
         <div className="hidden lg:flex justify-center">
           <div className="flex gap-2 bg-gray-100 p-1 rounded-lg">

@@ -1,4 +1,3 @@
-import TestimonialSection from "./TestimonialSection";
 import { motion } from "framer-motion";
 
 const TeamSection = () => {

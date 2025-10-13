@@ -18,7 +18,7 @@ const PackageSelection = ({
   onItemSelect,
   selectedItems,
 }: PackageSelectionProps) => {
-  const [selectedPackage, setSelectedPackage] = useState<number>(0);
+  const [, setSelectedPackage] = useState<number>(0);
 
   const handlePackageSelect = (pkgId: number) => {
     // Get current step name
@@ -159,7 +159,7 @@ const PackageSelection = ({
         {/* Step Indicators - Stepper Bar */}
         <div className="flex-shrink-0 flex justify-center items-center p-8 pt-4">
           <div className="flex items-center">
-            {project?.steps?.map((step, index) => (
+            {project?.steps?.map((_, index) => (
               <div key={index} className="flex items-center">
                 {/* Step Circle */}
                 <div className="relative">

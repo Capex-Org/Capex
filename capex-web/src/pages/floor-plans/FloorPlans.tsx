@@ -1,13 +1,14 @@
 import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import Dialog from "@/components/ui/dialog";
 import HeroSection from "./components/HeroSection";
 import FilterBar from "./components/FilterBar";
 import FloorPlanCard from "./components/FloorPlanCard";
+import FloorPlanDetails from "./components/FloorPlanDetails";
 import {
   floorPlans,
   getFloorPlansByType,
-  getFloorPlansBySize,
   getFloorPlansByPriceRange,
   searchFloorPlans,
 } from "@/lib/appData";
@@ -22,6 +23,8 @@ const FloorPlans = () => {
     sort: "Relevance",
     search: "",
   });
+  const [selectedPlan, setSelectedPlan] = useState<FloorPlan | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   // Filter and sort floor plans
   const filteredPlans = useMemo(() => {
@@ -99,9 +102,13 @@ const FloorPlans = () => {
   };
 
   const handleViewDetails = (plan: FloorPlan) => {
-    // Navigate to plan details page or show modal
-    console.log("View details for:", plan.name);
-    // TODO: Implement plan details view
+    setSelectedPlan(plan);
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+    setSelectedPlan(null);
   };
 
   const handleStartEstimate = (plan: FloorPlan) => {
@@ -188,6 +195,16 @@ const FloorPlans = () => {
           </div>
         </div>
       </div>
+
+      {/* Floor Plan Details Dialog */}
+      <Dialog
+        isOpen={isDialogOpen}
+        onClose={handleCloseDialog}
+        title={selectedPlan?.name || "Floor Plan Details"}
+        maxWidth="lg"
+      >
+        {selectedPlan && <FloorPlanDetails plan={selectedPlan} />}
+      </Dialog>
     </section>
   );
 };

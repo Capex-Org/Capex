@@ -6,7 +6,7 @@ import {
   recentWork3,
 } from "@/lib/appData";
 import TestimonialCard from "./TestimonialCard";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface Testimonial {
   name: string;
