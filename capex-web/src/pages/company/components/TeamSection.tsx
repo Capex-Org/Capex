@@ -1,4 +1,10 @@
 import { motion } from "framer-motion";
+import RecentWork1Image from "@/assets/images/recentWork1.webp";
+import RecentWork2Image from "@/assets/images/recentWork2.webp";
+import RecentWork3Image from "@/assets/images/recentWork3.webp";
+import KitchenImage from "@/assets/images/kitchen.webp";
+import AboutUsImage from "@/assets/images/aboutus.webp";
+import BedroomImage from "@/assets/images/bedroom.webp";
 
 const TeamSection = () => {
   const teamMembers = [
@@ -6,49 +12,49 @@ const TeamSection = () => {
       id: "1",
       name: "Jenny Wilson",
       position: "CEO & Founder of CAPEX",
-      image: "/src/assets/images/recentWork1.webp",
+      image: RecentWork1Image,
     },
     {
       id: "2",
       name: "Brooklyn Simmons",
       position: "Project Manager",
-      image: "/src/assets/images/recentWork2.webp",
+      image: RecentWork2Image,
     },
     {
       id: "3",
       name: "Darlene Robertson",
       position: "Product Designer",
-      image: "/src/assets/images/recentWork3.webp",
+      image: RecentWork3Image,
     },
     {
       id: "4",
       name: "Jane Cooper",
       position: "UI Designer",
-      image: "/src/assets/images/kitchen.webp",
+      image: KitchenImage,
     },
     {
       id: "5",
       name: "Eleanor Pena",
       position: "UX Designer",
-      image: "/src/assets/images/aboutus.webp",
+      image: AboutUsImage,
     },
     {
       id: "6",
       name: "Theresa Webb",
       position: "UX Designer (Intern)",
-      image: "/src/assets/images/bedroom.webp",
+      image: BedroomImage,
     },
     {
       id: "7",
       name: "Albert Flores",
       position: "Front-end Developer",
-      image: "/src/assets/images/recentWork1.webp",
+      image: RecentWork1Image,
     },
     {
       id: "8",
       name: "Wade Warren",
       position: "Front-end Developer",
-      image: "/src/assets/images/recentWork2.webp",
+      image: RecentWork2Image,
     },
   ];
 

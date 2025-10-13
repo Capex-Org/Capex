@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import MotionText from "@/components/common/MotionText";
+import AboutUsImage from "@/assets/images/aboutus.webp";
 
 const OurStorySection = () => {
   return (
@@ -67,7 +68,7 @@ const OurStorySection = () => {
         >
           <div className="aspect-[4/3] rounded-lg overflow-hidden">
             <img
-              src="/src/assets/images/aboutus.webp"
+              src={AboutUsImage}
               alt="Modern architecture building"
               className="w-full h-full object-cover"
             />
