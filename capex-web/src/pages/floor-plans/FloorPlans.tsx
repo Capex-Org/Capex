@@ -6,6 +6,7 @@ import HeroSection from "./components/HeroSection";
 import FilterBar from "./components/FilterBar";
 import FloorPlanCard from "./components/FloorPlanCard";
 import FloorPlanDetails from "./components/FloorPlanDetails";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   floorPlans,
   getFloorPlansByType,
@@ -124,42 +125,77 @@ const FloorPlans = () => {
           <HeroSection />
 
           {/* Filter Bar */}
-          <FilterBar
-            onTypeChange={(type) => handleFilterChange("type", type)}
-            onSizeChange={(size) => handleFilterChange("size", size)}
-            onPriceChange={(price) => handleFilterChange("price", price)}
-            onSortChange={(sort) => handleFilterChange("sort", sort)}
-            onSearchChange={(search) => handleFilterChange("search", search)}
-            onClearAll={handleClearAll}
-            searchQuery={filters.search}
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2, ease: "easeOut", delay: 0.05 }}
+          >
+            <FilterBar
+              onTypeChange={(type) => handleFilterChange("type", type)}
+              onSizeChange={(size) => handleFilterChange("size", size)}
+              onPriceChange={(price) => handleFilterChange("price", price)}
+              onSortChange={(sort) => handleFilterChange("sort", sort)}
+              onSearchChange={(search) => handleFilterChange("search", search)}
+              onClearAll={handleClearAll}
+              searchQuery={filters.search}
+            />
+          </motion.div>
 
           {/* Main Content */}
           <div className="py-8">
             {/* Results Header */}
-            <div className="mb-8">
+            <motion.div
+              className="mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.2, ease: "easeOut", delay: 0.1 }}
+            >
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 Floor Plans
               </h2>
               <p className="text-gray-600">
                 Showing {filteredPlans.length} of {floorPlans.length} plans
               </p>
-            </div>
+            </motion.div>
 
             {/* Floor Plans Grid */}
             {filteredPlans.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredPlans.map((plan) => (
-                  <FloorPlanCard
-                    key={plan.id}
-                    plan={plan}
-                    onViewDetails={handleViewDetails}
-                    onStartEstimate={handleStartEstimate}
-                  />
-                ))}
-              </div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`${filters.type}-${filters.size}-${filters.price}-${filters.search}`}
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {filteredPlans.map((plan, index) => (
+                    <motion.div
+                      key={plan.id}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 0.2,
+                        ease: "easeOut",
+                        delay: 0.15 + index * 0.05,
+                      }}
+                    >
+                      <FloorPlanCard
+                        plan={plan}
+                        onViewDetails={handleViewDetails}
+                        onStartEstimate={handleStartEstimate}
+                      />
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
             ) : (
-              <div className="text-center py-16">
+              <motion.div
+                className="text-center py-16"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.2 }}
+              >
                 <div className="text-gray-400 mb-4">
                   <svg
                     className="w-16 h-16 mx-auto"
@@ -190,7 +226,7 @@ const FloorPlans = () => {
                 >
                   Clear All Filters
                 </Button>
-              </div>
+              </motion.div>
             )}
           </div>
         </div>
