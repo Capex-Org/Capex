@@ -1587,3 +1587,209 @@ export const searchFloorPlans = (query: string) => {
       plan.type.toLowerCase().includes(lowercaseQuery)
   );
 };
+
+// Gallery Data
+export interface GalleryItem {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  category:
+    | "All"
+    | "Vision-Driven Designs"
+    | "3D Visualisation"
+    | "Personalised Collaboration";
+  tags: string[];
+  featured: boolean;
+}
+
+export const galleryItems: GalleryItem[] = [
+  {
+    id: "1",
+    title: "Modern Living Room",
+    description:
+      "Bright open-plan living space with contemporary furniture and natural lighting",
+    image: "/src/assets/images/recentWork1.webp",
+    category: "Vision-Driven Designs",
+    tags: ["Living Room", "Modern", "Open Plan"],
+    featured: true,
+  },
+  {
+    id: "2",
+    title: "Luxury Living Space",
+    description:
+      "Elegant living room with white sofas, built-in shelving, and decorative ceiling",
+    image: "/src/assets/images/recentWork2.webp",
+    category: "Vision-Driven Designs",
+    tags: ["Living Room", "Luxury", "White"],
+    featured: true,
+  },
+  {
+    id: "3",
+    title: "Minimalist Dining",
+    description:
+      "Clean dining area with wooden floors and contemporary furniture",
+    image: "/src/assets/images/recentWork3.webp",
+    category: "Vision-Driven Designs",
+    tags: ["Dining", "Minimalist", "Wood"],
+    featured: false,
+  },
+  {
+    id: "4",
+    title: "Modern Kitchen Design",
+    description:
+      "Contemporary kitchen with sleek appliances and modern fixtures",
+    image: "/src/assets/images/kitchen.webp",
+    category: "3D Visualisation",
+    tags: ["Kitchen", "Modern", "Appliances"],
+    featured: true,
+  },
+  {
+    id: "5",
+    title: "About Us Showcase",
+    description: "Professional interior design showcase with elegant finishes",
+    image: "/src/assets/images/aboutus.webp",
+    category: "3D Visualisation",
+    tags: ["Showcase", "Professional", "Elegant"],
+    featured: false,
+  },
+  {
+    id: "6",
+    title: "Luxury Bedroom Suite",
+    description: "Premium bedroom design with sophisticated styling",
+    image: "/src/assets/images/bedroom.webp",
+    category: "3D Visualisation",
+    tags: ["Bedroom", "Luxury", "Premium"],
+    featured: true,
+  },
+  {
+    id: "7",
+    title: "Package Design 1",
+    description: "Custom interior package with modern aesthetic",
+    image: "/src/assets/images/packages/pk1.webp",
+    category: "Personalised Collaboration",
+    tags: ["Package", "Custom", "Modern"],
+    featured: false,
+  },
+  {
+    id: "8",
+    title: "Package Design 2",
+    description: "Elegant interior package with premium finishes",
+    image: "/src/assets/images/packages/pk2.webp",
+    category: "Personalised Collaboration",
+    tags: ["Package", "Elegant", "Premium"],
+    featured: true,
+  },
+  {
+    id: "9",
+    title: "Package Design 3",
+    description: "Contemporary package design with clean lines",
+    image: "/src/assets/images/packages/pk3.webp",
+    category: "Personalised Collaboration",
+    tags: ["Package", "Contemporary", "Clean"],
+    featured: false,
+  },
+  {
+    id: "10",
+    title: "Package Design 4",
+    description: "Luxury package with sophisticated styling",
+    image: "/src/assets/images/packages/pk4.webp",
+    category: "Personalised Collaboration",
+    tags: ["Package", "Luxury", "Sophisticated"],
+    featured: true,
+  },
+  {
+    id: "11",
+    title: "Contemporary Living",
+    description: "Modern living space with clean design principles",
+    image: "/src/assets/images/recentWork1.webp",
+    category: "Vision-Driven Designs",
+    tags: ["Living", "Contemporary", "Clean"],
+    featured: false,
+  },
+  {
+    id: "12",
+    title: "Elegant Dining Room",
+    description: "Sophisticated dining area with premium materials",
+    image: "/src/assets/images/recentWork2.webp",
+    category: "Vision-Driven Designs",
+    tags: ["Dining", "Elegant", "Premium"],
+    featured: false,
+  },
+  {
+    id: "13",
+    title: "Modern Kitchen Island",
+    description: "Contemporary kitchen with central island design",
+    image: "/src/assets/images/kitchen.webp",
+    category: "3D Visualisation",
+    tags: ["Kitchen", "Island", "Contemporary"],
+    featured: false,
+  },
+  {
+    id: "14",
+    title: "Professional Office",
+    description: "Modern workspace design for productivity",
+    image: "/src/assets/images/aboutus.webp",
+    category: "3D Visualisation",
+    tags: ["Office", "Professional", "Productivity"],
+    featured: false,
+  },
+  {
+    id: "15",
+    title: "Master Bedroom",
+    description: "Spacious master bedroom with luxury amenities",
+    image: "/src/assets/images/bedroom.webp",
+    category: "Personalised Collaboration",
+    tags: ["Bedroom", "Master", "Spacious"],
+    featured: false,
+  },
+  {
+    id: "16",
+    title: "Custom Package A",
+    description: "Tailored interior design package for modern living",
+    image: "/src/assets/images/packages/pk1.webp",
+    category: "Personalised Collaboration",
+    tags: ["Custom", "Tailored", "Modern"],
+    featured: false,
+  },
+  {
+    id: "17",
+    title: "Premium Package B",
+    description: "High-end design package with luxury finishes",
+    image: "/src/assets/images/packages/pk2.webp",
+    category: "Personalised Collaboration",
+    tags: ["Premium", "High-end", "Luxury"],
+    featured: false,
+  },
+  {
+    id: "18",
+    title: "Design Package C",
+    description: "Comprehensive design solution for contemporary homes",
+    image: "/src/assets/images/packages/pk3.webp",
+    category: "Personalised Collaboration",
+    tags: ["Design", "Comprehensive", "Contemporary"],
+    featured: false,
+  },
+];
+
+// Gallery utility functions
+export const getGalleryByCategory = (category: string): GalleryItem[] => {
+  if (category === "All") return galleryItems;
+  return galleryItems.filter((item) => item.category === category);
+};
+
+export const getFeaturedGalleryItems = (): GalleryItem[] => {
+  return galleryItems.filter((item) => item.featured);
+};
+
+export const searchGalleryItems = (query: string): GalleryItem[] => {
+  if (!query.trim()) return galleryItems;
+
+  const lowercaseQuery = query.toLowerCase();
+  return galleryItems.filter(
+    (item) =>
+      item.title.toLowerCase().includes(lowercaseQuery) ||
+      item.description.toLowerCase().includes(lowercaseQuery) ||
+      item.tags.some((tag) => tag.toLowerCase().includes(lowercaseQuery))
+  );
+};
