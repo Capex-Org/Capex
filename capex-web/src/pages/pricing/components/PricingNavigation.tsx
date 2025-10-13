@@ -202,65 +202,84 @@ const PricingNavigation = ({
                     <div className="absolute left-4 top-2 bottom-2 w-px bg-gray-200"></div>
 
                     <div className="space-y-4">
-                      {item.steps.map((step, index) => (
-                        <button
-                          key={index}
-                          onClick={() => setCurrentStep(index)}
-                          className="w-full text-left flex items-center cursor-pointer hover:bg-gray-50 p-2 rounded transition-colors relative"
-                        >
-                          {/* Step circle with connecting line */}
-                          <div className="relative flex items-center justify-center mr-4 w-4 h-4">
-                            {/* Circle */}
-                            <div
-                              className={`w-4 h-4 rounded-full border-2 transition-all duration-300 ${
-                                index <= currentStep
-                                  ? "bg-primary-600 border-primary-600"
-                                  : "bg-white border-gray-300"
+                      {item.steps.map((step, index) => {
+                        // Check if this step has a selected item
+                        const hasSelectedItem =
+                          selectedItems[step.name] !== undefined &&
+                          selectedItems[step.name] !== -1;
+                        const isCompleted =
+                          index < currentStep || hasSelectedItem;
+                        const isCurrent = index === currentStep;
+
+                        return (
+                          <button
+                            key={index}
+                            onClick={() => setCurrentStep(index)}
+                            className="w-full text-left flex items-center cursor-pointer hover:bg-gray-50 p-2 rounded transition-colors relative"
+                          >
+                            {/* Step circle with connecting line */}
+                            <div className="relative flex items-center justify-center mr-4 w-4 h-4">
+                              {/* Circle */}
+                              <div
+                                className={`w-4 h-4 rounded-full border-2 transition-all duration-300 ${
+                                  isCompleted
+                                    ? "bg-primary-600 border-primary-600"
+                                    : isCurrent
+                                    ? "bg-primary-600 border-primary-600"
+                                    : "bg-white border-gray-300"
+                                }`}
+                              >
+                                {/* Checkmark or number inside circle */}
+                                {isCompleted ? (
+                                  <div className="w-full h-full flex items-center justify-center">
+                                    <svg
+                                      className="w-2 h-2 text-white"
+                                      fill="currentColor"
+                                      viewBox="0 0 20 20"
+                                    >
+                                      <path
+                                        fillRule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clipRule="evenodd"
+                                      />
+                                    </svg>
+                                  </div>
+                                ) : isCurrent ? (
+                                  <div className="w-full h-full flex items-center justify-center">
+                                    <div className="w-2 h-2 bg-white rounded-full"></div>
+                                  </div>
+                                ) : (
+                                  <div className="w-full h-full flex items-center justify-center">
+                                    <span className="text-xs text-gray-500 font-medium">
+                                      {index + 1}
+                                    </span>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+
+                            {/* Step text */}
+                            <span
+                              className={`text-sm transition-colors ${
+                                isCurrent
+                                  ? "text-primary-600 font-semibold"
+                                  : isCompleted
+                                  ? "text-gray-700"
+                                  : "text-gray-500"
                               }`}
                             >
-                              {/* Checkmark or number inside circle */}
-                              {index < currentStep ? (
-                                <div className="w-full h-full flex items-center justify-center">
-                                  <svg
-                                    className="w-2 h-2 text-white"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                      clipRule="evenodd"
-                                    />
-                                  </svg>
-                                </div>
-                              ) : index === currentStep ? (
-                                <div className="w-full h-full flex items-center justify-center">
-                                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                                </div>
-                              ) : (
-                                <div className="w-full h-full flex items-center justify-center">
-                                  <span className="text-xs text-gray-500 font-medium">
-                                    {index + 1}
-                                  </span>
-                                </div>
-                              )}
-                            </div>
-                          </div>
+                              {step.name}
+                            </span>
 
-                          {/* Step text */}
-                          <span
-                            className={`text-sm transition-colors ${
-                              index === currentStep
-                                ? "text-primary-600 font-semibold"
-                                : index < currentStep
-                                ? "text-gray-700"
-                                : "text-gray-500"
-                            }`}
-                          >
-                            {step.name}
-                          </span>
-                        </button>
-                      ))}
+                            {/* Selection indicator */}
+                            {hasSelectedItem && (
+                              <div className="ml-auto">
+                                <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
+                              </div>
+                            )}
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
