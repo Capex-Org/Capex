@@ -164,7 +164,7 @@ const PricingNavigation = ({
       </div>
 
       {/* Desktop: Vertical Navigation */}
-      <div className="hidden lg:block h-full overflow-y-auto p-6">
+      <div className="hidden lg:block min-h-screen overflow-y-auto p-6">
         {projectTypes.map((item) => (
           <div key={item.id} className="mb-4">
             <button

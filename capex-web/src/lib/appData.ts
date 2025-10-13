@@ -71,6 +71,13 @@ export const projectTypes: ProjectType[] = [
             image: pk4,
             price: 75000,
           },
+          {
+            id: 4,
+            name: "Custom Package",
+            description: "Fully customized to your specifications",
+            image: pk1,
+            price: 100000,
+          },
         ],
       },
       {

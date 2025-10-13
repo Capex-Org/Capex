@@ -61,7 +61,7 @@ const PackageSelection = ({
         </h2>
 
         {/* Mobile: Single Column Grid */}
-        <div className="space-y-4 max-h-[80vh] overflow-y-auto">
+        <div className="space-y-4  overflow-y-auto">
           {displayItems.map((pkg: any) => (
             <div
               key={pkg.id}
@@ -103,7 +103,7 @@ const PackageSelection = ({
       </div>
 
       {/* Desktop Layout */}
-      <div className="hidden lg:flex h-full flex-col">
+      <div className="hidden lg:flex min-h-screen flex-col">
         {/* Header - Fixed */}
         <div className="flex-shrink-0 p-8 pb-4">
           <div className="text-center">
@@ -115,7 +115,7 @@ const PackageSelection = ({
 
         {/* Package Grid - Scrollable with Max Height */}
         <div className="flex-1 overflow-y-auto px-8">
-          <div className="max-h-[80vh] overflow-y-auto">
+          <div className="max-h-[99vh] overflow-y-auto pb-4">
             <div className="grid grid-cols-2 gap-6 max-w-2xl mx-auto pb-4">
               {displayItems.map((pkg: any) => (
                 <div
@@ -156,36 +156,53 @@ const PackageSelection = ({
           </div>
         </div>
 
-        {/* Step Indicators - Fixed */}
-        <div className="flex-shrink-0 flex justify-center items-center space-x-2 p-8 pt-4">
-          {[0, 1, 2, 3, 4].map((index: number) => (
-            <div
-              key={index}
-              className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                index === 0
-                  ? "bg-green-500"
-                  : index <= selectedPackage
-                  ? "bg-primary-500"
-                  : "bg-gray-300"
-              }`}
-            >
-              {index === 0 && (
-                <div className="w-full h-full flex items-center justify-center">
-                  <svg
-                    className="w-2 h-2 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
+        {/* Step Indicators - Stepper Bar */}
+        <div className="flex-shrink-0 flex justify-center items-center p-8 pt-4">
+          <div className="flex items-center">
+            {project?.steps?.map((step, index) => (
+              <div key={index} className="flex items-center">
+                {/* Step Circle */}
+                <div className="relative">
+                  <div
+                    className={`w-8 h-8 rounded-full border-2 transition-all duration-300 flex items-center justify-center ${
+                      index < currentStep
+                        ? "bg-amber-600 border-amber-600"
+                        : index === currentStep
+                        ? "border-amber-600 bg-white"
+                        : "border-amber-200 bg-white"
+                    }`}
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                    {index < currentStep ? (
+                      <svg
+                        className="w-4 h-4 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    ) : index === currentStep ? (
+                      <div className="w-3 h-3 bg-amber-600 rounded-full"></div>
+                    ) : (
+                      <div className="w-3 h-3 bg-amber-100 rounded-full"></div>
+                    )}
+                  </div>
                 </div>
-              )}
-            </div>
-          ))}
+
+                {/* Connecting Line */}
+                {index < (project?.steps?.length || 0) - 1 && (
+                  <div
+                    className={`w-12 h-0.5 transition-colors duration-300 ${
+                      index < currentStep ? "bg-amber-600" : "bg-amber-200"
+                    }`}
+                  ></div>
+                )}
+              </div>
+            )) || []}
+          </div>
         </div>
       </div>
     </div>

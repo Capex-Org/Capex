@@ -74,9 +74,9 @@ const Pricing = () => {
           </div>
 
           {/* Desktop Layout */}
-          <div className="hidden lg:flex h-screen overflow-hidden">
+          <div className="hidden lg:flex min-h-screen">
             {/* Left Panel - Navigation */}
-            <div className="w-1/4 bg-white border-r border-gray-200 overflow-hidden">
+            <div className="w-1/4 bg-white border-r border-gray-200 min-h-screen">
               <PricingNavigation
                 selectedProjectType={selectedProjectType}
                 setSelectedProjectType={setSelectedProjectType}
@@ -87,7 +87,7 @@ const Pricing = () => {
             </div>
 
             {/* Center Panel - Package Selection */}
-            <div className="w-1/2 bg-white overflow-hidden">
+            <div className="w-1/2 bg-white min-h-screen">
               <PackageSelection
                 selectedProjectType={selectedProjectType}
                 currentStep={currentStep}
@@ -97,7 +97,7 @@ const Pricing = () => {
             </div>
 
             {/* Right Panel - Order Summary */}
-            <div className="w-1/4 bg-white border-l border-gray-200 overflow-hidden">
+            <div className="w-1/4 bg-white border-l border-gray-200 min-h-screen">
               <OrderSummary
                 selectedItems={selectedItems}
                 selectedProjectType={selectedProjectType}
