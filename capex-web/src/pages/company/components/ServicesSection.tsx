@@ -1,4 +1,5 @@
 import { Building2, Cog, Star } from "lucide-react";
+import { motion } from "framer-motion";
 
 const ServicesSection = () => {
   const services = [
@@ -23,33 +24,81 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-gray-50">
+    <section className="py-16 lg:py-24 ">
       <div>
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <motion.h2
+            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.2,
+              ease: "easeOut",
+              delay: 0.05,
+            }}
+            viewport={{ once: true }}
+          >
             Our agency knows work dominates{" "}
             <span className="text-amber-600">our lives</span>
-          </h2>
+          </motion.h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
               className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.2,
+                ease: "easeOut",
+                delay: 0.1 + index * 0.05,
+              }}
+              viewport={{ once: true }}
             >
-              <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-6">
+              <motion.div
+                className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-6"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.2,
+                  ease: "easeOut",
+                  delay: 0.15 + index * 0.05,
+                }}
+                viewport={{ once: true }}
+              >
                 <service.icon className="w-6 h-6 text-white" />
-              </div>
+              </motion.div>
 
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <motion.h3
+                className="text-xl font-semibold text-gray-900 mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.2,
+                  ease: "easeOut",
+                  delay: 0.2 + index * 0.05,
+                }}
+                viewport={{ once: true }}
+              >
                 {service.title}
-              </h3>
+              </motion.h3>
 
-              <p className="text-gray-600 leading-relaxed">
+              <motion.p
+                className="text-gray-600 leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.2,
+                  ease: "easeOut",
+                  delay: 0.25 + index * 0.05,
+                }}
+                viewport={{ once: true }}
+              >
                 {service.description}
-              </p>
-            </div>
+              </motion.p>
+            </motion.div>
           ))}
         </div>
       </div>

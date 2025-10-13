@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import StarRating from "@/components/common/StarRating";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Testimonial {
   name: string;
@@ -23,65 +24,102 @@ const TestimonialCard = ({
   onNext,
 }: TestimonialCardProps) => {
   return (
-    <div className="bg-white rounded-lg p-8 shadow-lg min-h-[300px] flex flex-col">
+    <div className="bg-white rounded-lg p-8 shadow-lg min-h-[320px] flex flex-col">
       {/* Header Section */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center">
           <div className="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-yellow-400">
-            <img
-              key={selectedTestimonial}
-              src={testimonials[selectedTestimonial].avatar}
-              alt={testimonials[selectedTestimonial].name}
-              className="w-full h-full object-cover transition-opacity duration-300"
-            />
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={selectedTestimonial}
+                src={testimonials[selectedTestimonial].avatar}
+                alt={testimonials[selectedTestimonial].name}
+                className="w-full h-full object-cover"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              />
+            </AnimatePresence>
           </div>
           <div>
-            <h4
-              key={`name-${selectedTestimonial}`}
-              className="font-semibold text-gray-900 text-lg transition-opacity duration-300"
-            >
-              {testimonials[selectedTestimonial].name}
-            </h4>
-            <p
-              key={`company-${selectedTestimonial}`}
-              className="text-gray-600 text-sm transition-opacity duration-300"
-            >
-              {testimonials[selectedTestimonial].company}
-            </p>
+            <AnimatePresence mode="wait">
+              <motion.h4
+                key={`name-${selectedTestimonial}`}
+                className="font-semibold text-gray-900 text-lg"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                {testimonials[selectedTestimonial].name}
+              </motion.h4>
+            </AnimatePresence>
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={`company-${selectedTestimonial}`}
+                className="text-gray-600 text-sm"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3, ease: "easeInOut", delay: 0.1 }}
+              >
+                {testimonials[selectedTestimonial].company}
+              </motion.p>
+            </AnimatePresence>
           </div>
         </div>
 
         {/* Star Rating */}
-        <StarRating
-          rating={testimonials[selectedTestimonial].rating}
-          key={`rating-${selectedTestimonial}`}
-        />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`rating-${selectedTestimonial}`}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.3, ease: "easeInOut", delay: 0.2 }}
+          >
+            <StarRating rating={testimonials[selectedTestimonial].rating} />
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Review Text */}
       <div className="flex-1 flex items-center">
-        <p
-          key={`text-${selectedTestimonial}`}
-          className="text-gray-700 leading-relaxed text-left transition-opacity duration-300"
-        >
-          {testimonials[selectedTestimonial].text}
-        </p>
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={`text-${selectedTestimonial}`}
+            className="text-gray-700 leading-relaxed text-left"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: "easeInOut", delay: 0.3 }}
+          >
+            {testimonials[selectedTestimonial].text}
+          </motion.p>
+        </AnimatePresence>
       </div>
 
       {/* Navigation */}
       <div className="flex justify-center space-x-4 mt-6">
-        <button
+        <motion.button
           onClick={onPrev}
           className="w-10 h-10 rounded-full border border-gray-300 bg-white hover:bg-gray-50 transition-colors flex items-center justify-center"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.2 }}
         >
           <ChevronLeft className="w-5 h-5 text-gray-600" />
-        </button>
-        <button
+        </motion.button>
+        <motion.button
           onClick={onNext}
           className="w-10 h-10 rounded-full border border-gray-300 bg-white hover:bg-gray-50 transition-colors flex items-center justify-center"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.2 }}
         >
           <ChevronRight className="w-5 h-5 text-gray-600" />
-        </button>
+        </motion.button>
       </div>
     </div>
   );

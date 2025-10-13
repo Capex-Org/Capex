@@ -6,6 +6,7 @@ import {
   recentWork3,
 } from "@/lib/appData";
 import TestimonialCard from "./TestimonialCard";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Testimonial {
   name: string;
@@ -62,18 +63,27 @@ const TestimonialSection = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="relative max-w-7xl mx-auto px-6 h-full flex items-center justify-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start w-full">
+      <div className="relative w-full mx-auto px-4 sm:px-5 md:px-10 lg:px-12 h-full flex items-center justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
           {/* Left Side - Heading */}
-          <div className="text-white text-center lg:text-left flex items-center justify-center lg:justify-start h-full">
-            <h3 className="text-3xl lg:text-4xl font-bold leading-tight">
+          <div className="text-white text-center lg:text-left">
+            <motion.h3
+              className="text-3xl lg:text-4xl font-bold leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+                delay: 0.2,
+              }}
+            >
               What our client says about our services.
-            </h3>
+            </motion.h3>
           </div>
 
           {/* Right Side - Testimonial Card */}
           <div className="flex justify-center lg:justify-start">
-            <div className="w-full ">
+            <div className="w-full">
               <TestimonialCard
                 testimonials={testimonials}
                 selectedTestimonial={selectedTestimonial}

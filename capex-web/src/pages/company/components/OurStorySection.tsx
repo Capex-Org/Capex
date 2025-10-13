@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
+import MotionText from "@/components/common/MotionText";
 
 const OurStorySection = () => {
   return (
@@ -7,28 +9,62 @@ const OurStorySection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Content */}
         <div className="space-y-6">
-          <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+          <motion.h1
+            className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              ease: "easeOut",
+              delay: 0.2,
+            }}
+            viewport={{ once: true }}
+          >
             Our Story the Journey That's Shaped{" "}
             <span className="text-amber-600">Our Success</span>
-          </h1>
+          </motion.h1>
 
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <MotionText
+            delay={0.4}
+            className="text-lg text-gray-600 leading-relaxed"
+          >
             Work directly with a principal architect. We blend award winning
             design with practical, on-site support and we show it all in 3D so
             you're confident before a single wall moves.
-          </p>
+          </MotionText>
 
-          <Button
-            className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg"
-            size="lg"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              delay: 0.6,
+            }}
+            viewport={{ once: true }}
           >
-            <ArrowUpRight className="w-5 h-5 mr-2" />
-            Book a Consultation
-          </Button>
+            <Button
+              className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg"
+              size="lg"
+            >
+              <ArrowUpRight className="w-5 h-5 mr-2" />
+              Book a Consultation
+            </Button>
+          </motion.div>
         </div>
 
         {/* Image */}
-        <div className="relative">
+        <motion.div
+          className="relative"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 0.8,
+            ease: "easeOut",
+            delay: 0.3,
+          }}
+          viewport={{ once: true }}
+        >
           <div className="aspect-[4/3] rounded-lg overflow-hidden">
             <img
               src="/src/assets/images/aboutus.webp"
@@ -36,7 +72,7 @@ const OurStorySection = () => {
               className="w-full h-full object-cover"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
