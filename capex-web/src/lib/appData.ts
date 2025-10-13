@@ -1421,3 +1421,169 @@ export const getRelevantOrderItems = (
 
   return orderItems;
 };
+
+// Floor Plan Interfaces
+export interface FloorPlan {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+  sqft: number;
+  beds: number;
+  bathrooms: number;
+  price: number;
+  type: "Studio" | "1 Bedroom" | "2 Bedroom" | "3 Bedroom" | "Custom";
+  size: "Small" | "Medium" | "Large";
+}
+
+// Floor Plan Data
+export const floorPlans: FloorPlan[] = [
+  {
+    id: "studio-plan-1",
+    name: "Studio Plan",
+    description:
+      "Compact studio optimized for garage conversions with efficient plumbing wall.",
+    image: bedroomImg,
+    sqft: 400,
+    beds: 0,
+    bathrooms: 1,
+    price: 23500,
+    type: "Studio",
+    size: "Small",
+  },
+  {
+    id: "1-bedroom-plan-1",
+    name: "1 Bedroom Plan",
+    description:
+      "Compact studio optimized for garage conversions with efficient plumbing wall.",
+    image: kitchenImg,
+    sqft: 600,
+    beds: 1,
+    bathrooms: 1,
+    price: 28500,
+    type: "1 Bedroom",
+    size: "Small",
+  },
+  {
+    id: "2-bedroom-plan-1",
+    name: "2 Bedroom Plan",
+    description:
+      "Compact studio optimized for garage conversions with efficient plumbing wall.",
+    image: recentWork1,
+    sqft: 800,
+    beds: 2,
+    bathrooms: 1,
+    price: 35000,
+    type: "2 Bedroom",
+    size: "Medium",
+  },
+  {
+    id: "studio-plan-2",
+    name: "Studio Plan Plus",
+    description:
+      "Enhanced studio design with modern amenities and smart storage solutions.",
+    image: recentWork2,
+    sqft: 450,
+    beds: 0,
+    bathrooms: 1,
+    price: 26500,
+    type: "Studio",
+    size: "Small",
+  },
+  {
+    id: "1-bedroom-plan-2",
+    name: "1 Bedroom Deluxe",
+    description:
+      "Spacious one-bedroom layout perfect for long-term living arrangements.",
+    image: recentWork3,
+    sqft: 700,
+    beds: 1,
+    bathrooms: 1,
+    price: 32500,
+    type: "1 Bedroom",
+    size: "Medium",
+  },
+  {
+    id: "2-bedroom-plan-2",
+    name: "2 Bedroom Family",
+    description:
+      "Family-friendly design with separate living and sleeping areas.",
+    image: aboutusImg,
+    sqft: 950,
+    beds: 2,
+    bathrooms: 2,
+    price: 42000,
+    type: "2 Bedroom",
+    size: "Large",
+  },
+  {
+    id: "3-bedroom-plan-1",
+    name: "3 Bedroom Suite",
+    description:
+      "Luxurious three-bedroom layout with premium finishes and amenities.",
+    image: pk1,
+    sqft: 1200,
+    beds: 3,
+    bathrooms: 2,
+    price: 55000,
+    type: "3 Bedroom",
+    size: "Large",
+  },
+  {
+    id: "custom-plan-1",
+    name: "Custom Design",
+    description:
+      "Tailored floor plan designed specifically for your unique requirements.",
+    image: pk2,
+    sqft: 0,
+    beds: 0,
+    bathrooms: 0,
+    price: 75000,
+    type: "Custom",
+    size: "Large",
+  },
+];
+
+// Filter functions for floor plans
+export const getFloorPlansByType = (type: string) => {
+  if (type === "Any") return floorPlans;
+  return floorPlans.filter((plan) => plan.type === type);
+};
+
+export const getFloorPlansBySize = (size: string) => {
+  if (size === "Any") return floorPlans;
+  return floorPlans.filter((plan) => plan.size === size);
+};
+
+export const getFloorPlansByPriceRange = (priceRange: string) => {
+  if (priceRange === "Any") return floorPlans;
+
+  switch (priceRange) {
+    case "Under $25k":
+      return floorPlans.filter((plan) => plan.price < 25000);
+    case "$25k - $35k":
+      return floorPlans.filter(
+        (plan) => plan.price >= 25000 && plan.price <= 35000
+      );
+    case "$35k - $50k":
+      return floorPlans.filter(
+        (plan) => plan.price > 35000 && plan.price <= 50000
+      );
+    case "Over $50k":
+      return floorPlans.filter((plan) => plan.price > 50000);
+    default:
+      return floorPlans;
+  }
+};
+
+export const searchFloorPlans = (query: string) => {
+  if (!query.trim()) return floorPlans;
+
+  const lowercaseQuery = query.toLowerCase();
+  return floorPlans.filter(
+    (plan) =>
+      plan.name.toLowerCase().includes(lowercaseQuery) ||
+      plan.description.toLowerCase().includes(lowercaseQuery) ||
+      plan.type.toLowerCase().includes(lowercaseQuery)
+  );
+};
