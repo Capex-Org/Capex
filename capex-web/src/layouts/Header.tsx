@@ -10,7 +10,7 @@ const navItems = [
   { label: "Pricing", path: "/pricing" },
   { label: "Floor Plans", path: "/floor-plans" },
   { label: "Gallery", path: "/gallery" },
-  { label: "FAQ", path: "/faq" },
+  { label: "Company", path: "/company" },
 ];
 
 export default function Header() {

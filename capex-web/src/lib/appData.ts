@@ -9,6 +9,7 @@ import aboutusImg from "@/assets/images/aboutus.webp";
 import recentWork1 from "@/assets/images/recentWork1.webp";
 import recentWork2 from "@/assets/images/recentWork2.webp";
 import recentWork3 from "@/assets/images/recentWork3.webp";
+import CompanyRvBg from "@/assets/images/company-rv-bg.webp";
 
 export interface StepOption {
   id: number;
@@ -1793,3 +1794,6 @@ export const searchGalleryItems = (query: string): GalleryItem[] => {
       item.tags.some((tag) => tag.toLowerCase().includes(lowercaseQuery))
   );
 };
+
+export const companyRvBg = CompanyRvBg;
+export { recentWork1, recentWork2, recentWork3 };

@@ -21,20 +21,23 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-4 md:flex-row md:justify-center md:gap-8 mb-6">
           {/* Navigation Links */}
           <nav className="flex flex-wrap justify-center gap-6 text-base font-medium text-white">
-            <a href="#about" className="hover:text-primary-600 transition">
-              About
+            <a href="/" className="hover:text-primary-600 transition">
+              Home
             </a>
-            <a href="#features" className="hover:text-primary-600 transition">
-              Features
-            </a>
-            <a href="#pricing" className="hover:text-primary-600 transition">
+            <a href="/pricing" className="hover:text-primary-600 transition">
               Pricing
             </a>
-            <a href="#gallery" className="hover:text-primary-600 transition">
+            <a
+              href="/floor-plans"
+              className="hover:text-primary-600 transition"
+            >
+              Floor Plans
+            </a>
+            <a href="/gallery" className="hover:text-primary-600 transition">
               Gallery
             </a>
-            <a href="#team" className="hover:text-primary-600 transition">
-              Team
+            <a href="/company" className="hover:text-primary-600 transition">
+              Company
             </a>
           </nav>
 

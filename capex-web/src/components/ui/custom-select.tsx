@@ -13,6 +13,7 @@ interface CustomSelectProps
   required?: boolean;
   containerClassName?: string;
   options: SelectOption[];
+  placeholder?: string;
 }
 
 function CustomSelect({
@@ -22,6 +23,7 @@ function CustomSelect({
   className,
   id,
   options,
+  placeholder,
   ...props
 }: CustomSelectProps) {
   const selectId =
@@ -38,6 +40,11 @@ function CustomSelect({
       </label>
       <div className="relative">
         <Select id={selectId} className={cn("pr-10", className)} {...props}>
+          {placeholder && (
+            <option value="" disabled>
+              {placeholder}
+            </option>
+          )}
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
