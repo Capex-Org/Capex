@@ -24,7 +24,7 @@ const TestimonialCard = ({
   onNext,
 }: TestimonialCardProps) => {
   return (
-    <div className="bg-white rounded-lg p-8 shadow-lg min-h-[320px] flex flex-col">
+    <div className="bg-white rounded-lg p-6 sm:p-8 shadow-lg min-h-[320px] flex flex-col w-full max-w-[640px] mx-auto overflow-hidden">
       {/* Header Section */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center">
@@ -89,7 +89,7 @@ const TestimonialCard = ({
         <AnimatePresence mode="wait">
           <motion.p
             key={`text-${selectedTestimonial}`}
-            className="text-gray-700 leading-relaxed text-left"
+            className="text-gray-700 leading-relaxed text-left break-words text-sm sm:text-base"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -101,7 +101,7 @@ const TestimonialCard = ({
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-center space-x-4 mt-6">
+      <div className="flex justify-center gap-4 mt-6 flex-wrap">
         <motion.button
           onClick={onPrev}
           className="w-10 h-10 rounded-full border border-gray-300 bg-white hover:bg-gray-50 transition-colors flex items-center justify-center"

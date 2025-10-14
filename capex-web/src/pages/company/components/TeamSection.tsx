@@ -79,7 +79,7 @@ const TeamSection = () => {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-20">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.id}
@@ -93,16 +93,10 @@ const TeamSection = () => {
               }}
               viewport={{ once: true }}
             >
-              <div
-                className="bg-white rounded-2xl border border-gray-200 overflow-hidden group-hover:shadow-md transition-shadow duration-300"
-                style={{ width: "312px", height: "396px" }}
-              >
+              <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden group-hover:shadow-md transition-shadow duration-300 w-full md:max-w-[312px] mx-auto">
                 {/* Image Section */}
-                <div className="relative" style={{ padding: "24px" }}>
-                  <div
-                    className="overflow-hidden rounded-xl"
-                    style={{ width: "264px", height: "264px" }}
-                  >
+                <div className="relative p-4 md:p-6">
+                  <div className="overflow-hidden rounded-xl w-full max-w-full md:max-w-[264px] aspect-square mx-auto">
                     <img
                       src={member.image}
                       alt={member.name}
