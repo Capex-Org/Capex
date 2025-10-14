@@ -98,7 +98,7 @@ const ContactSection = () => {
           {/* Contact Form Section */}
           <div className="flex justify-center lg:justify-start">
             <div
-              className="bg-white shadow-sm w-full max-w-[648px] aspect-[648/576] rounded-3xl border border-gray-200 p-6 sm:p-8 lg:p-12"
+              className="bg-white shadow-sm w-full max-w-[648px] min-h-[576px] rounded-3xl border border-gray-200 p-6 sm:p-8 lg:p-12 overflow-hidden"
               style={{
                 opacity: 1,
               }}
