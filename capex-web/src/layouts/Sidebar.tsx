@@ -2,6 +2,7 @@ import { NavLink, Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Phone, X } from "lucide-react";
+import WhiteLogo from "@/assets/images/logo/White.webp";
 
 interface SidebarProps {
   open: boolean;
@@ -42,12 +43,8 @@ export default function Sidebar({
       >
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-4 border-b border-white/10">
-          <Link
-            to="/"
-            className="font-heading text-2xl font-bold text-white"
-            onClick={onClose}
-          >
-            CAPEX
+          <Link to="/" className="flex items-center" onClick={onClose}>
+            <img src={WhiteLogo} alt="CAPEX Logo" className="h-16 w-auto" />
           </Link>
           <button className="text-white" onClick={onClose}>
             <X size={26} />

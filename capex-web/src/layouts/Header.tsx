@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Menu, Phone } from "lucide-react";
 import Sidebar from "./Sidebar";
+import BlackLogo from "@/assets/images/logo/Black.webp";
+import WhiteLogo from "@/assets/images/logo/White.webp";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -22,22 +24,22 @@ export default function Header() {
 
   // Text color classes based on route
   const textColorClass = isHomeRoute ? "text-white" : "text-black";
-  const logoColorClass = isHomeRoute ? "text-white" : "text-black";
   const buttonVariant = isHomeRoute ? "secondary" : "default";
   const buttonClass = isHomeRoute
     ? "bg-white text-black hover:bg-neutral-200"
     : "bg-primary-600 text-white hover:bg-primary-400";
 
   return (
-    <header className="absolute top-0 w-full px-4 sm:px-5 md:px-10 lg:px-12 z-50">
+    <header className="absolute top-0 w-full px-4 sm:px-5 md:px-10 lg:px-12 z-50 ">
       <div className="max-w-[1559px] mx-auto">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link
-            to="/"
-            className={cn("font-heading text-3xl font-bold", logoColorClass)}
-          >
-            CAPEX
+          <Link to="/" className="flex items-center">
+            <img
+              src={isHomeRoute ? WhiteLogo : BlackLogo}
+              alt="CAPEX Logo"
+              className="h-20 pt-3 w-auto"
+            />
           </Link>
 
           {/* Desktop nav */}

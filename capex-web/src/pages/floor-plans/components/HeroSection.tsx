@@ -12,7 +12,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <div className="relative ">
+    <div className="relative py-8">
       <SectionWrapper
         rotateLeft={25}
         rotateRight={60}

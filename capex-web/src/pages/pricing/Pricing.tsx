@@ -44,8 +44,8 @@ const Pricing = () => {
   };
 
   return (
-    <section className="section-white">
-      <div className="section-content">
+    <section className="section-white ">
+      <div className="section-content pt-4">
         <div className="min-h-screen bg-gray-50">
           {/* Mobile Layout */}
           <div className="block lg:hidden">

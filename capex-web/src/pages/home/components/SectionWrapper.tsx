@@ -30,7 +30,7 @@ const SectionWrapper = ({
   rightHeight = "835.83px",
 }: SectionWrapperProps) => {
   return (
-    <section className="relative bg-section-gradient w-full overflow-hidden">
+    <section className="py-8 relative bg-section-gradient w-full overflow-hidden">
       {/* Left corner decorative image */}
       <img
         src={SideEffect1}
