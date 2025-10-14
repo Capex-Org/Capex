@@ -2,9 +2,17 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import MotionText from "@/components/common/MotionText";
-import AboutUsImage from "@/assets/images/aboutus.webp";
+import gallery10 from "@/assets/images/gallery/gallery-10.webp";
 
 const OurStorySection = () => {
+  const handleBookConsultation = () => {
+    // Scroll to the contact section on the same page
+    const contactSection = document.getElementById("contact-section");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -22,7 +30,7 @@ const OurStorySection = () => {
             viewport={{ once: true }}
           >
             Our Story the Journey That's Shaped{" "}
-            <span className="text-amber-600">Our Success</span>
+            <span className="text-primary-600">Our Success</span>
           </motion.h1>
 
           <MotionText
@@ -44,10 +52,7 @@ const OurStorySection = () => {
             }}
             viewport={{ once: true }}
           >
-            <Button
-              className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg"
-              size="lg"
-            >
+            <Button onClick={handleBookConsultation} size="lg">
               <ArrowUpRight className="w-5 h-5 mr-2" />
               Book a Consultation
             </Button>
@@ -68,7 +73,7 @@ const OurStorySection = () => {
         >
           <div className="aspect-[4/3] rounded-lg overflow-hidden">
             <img
-              src={AboutUsImage}
+              src={gallery10}
               alt="Modern architecture building"
               className="w-full h-full object-cover"
             />

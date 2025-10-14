@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
-import RecentWork1Image from "@/assets/images/recentWork1.webp";
-import RecentWork2Image from "@/assets/images/recentWork2.webp";
-import RecentWork3Image from "@/assets/images/recentWork3.webp";
-import KitchenImage from "@/assets/images/kitchen.webp";
-import AboutUsImage from "@/assets/images/aboutus.webp";
-import BedroomImage from "@/assets/images/bedroom.webp";
+import Team1Image from "@/assets/images/team/team-1.webp";
+import Team2Image from "@/assets/images/team/team-2.webp";
+import Team3Image from "@/assets/images/team/team-3.webp";
+import Team4Image from "@/assets/images/team/team-4.webp";
+import Team5Image from "@/assets/images/team/team-5.webp";
+import Team6Image from "@/assets/images/team/team-6.webp";
+import Team7Image from "@/assets/images/team/team-7.webp";
+import Team8Image from "@/assets/images/team/team-8.webp";
 
 const TeamSection = () => {
   const teamMembers = [
@@ -12,54 +14,54 @@ const TeamSection = () => {
       id: "1",
       name: "Jenny Wilson",
       position: "CEO & Founder of CAPEX",
-      image: RecentWork1Image,
+      image: Team1Image,
     },
     {
       id: "2",
       name: "Brooklyn Simmons",
       position: "Project Manager",
-      image: RecentWork2Image,
+      image: Team2Image,
     },
     {
       id: "3",
       name: "Darlene Robertson",
       position: "Product Designer",
-      image: RecentWork3Image,
+      image: Team3Image,
     },
     {
       id: "4",
       name: "Jane Cooper",
       position: "UI Designer",
-      image: KitchenImage,
+      image: Team4Image,
     },
     {
       id: "5",
       name: "Eleanor Pena",
       position: "UX Designer",
-      image: AboutUsImage,
+      image: Team5Image,
     },
     {
       id: "6",
       name: "Theresa Webb",
       position: "UX Designer (Intern)",
-      image: BedroomImage,
+      image: Team6Image,
     },
     {
       id: "7",
       name: "Albert Flores",
       position: "Front-end Developer",
-      image: RecentWork1Image,
+      image: Team7Image,
     },
     {
       id: "8",
       name: "Wade Warren",
       position: "Front-end Developer",
-      image: RecentWork2Image,
+      image: Team8Image,
     },
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className=" bg-white">
       <div>
         {/* Team Section */}
         <div className="text-center mb-16">
@@ -75,7 +77,7 @@ const TeamSection = () => {
             viewport={{ once: true }}
           >
             Engage with Our{" "}
-            <span className="text-amber-600">Creative Team</span>
+            <span className="text-primary-600">Creative Team</span>
           </motion.h2>
         </div>
 

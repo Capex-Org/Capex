@@ -130,12 +130,7 @@ const FilterBar = ({
 
           {/* Clear All Button - 1/12 */}
           <div className="col-span-1">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={onClearAll}
-              className="text-gray-600 hover:text-gray-800 w-full"
-            >
+            <Button variant="outline" size="sm" className="w-full" onClick={onClearAll}>
               Clear All
             </Button>
           </div>
@@ -223,12 +218,7 @@ const FilterBar = ({
 
             {/* Clear All Button */}
             <div className="flex justify-end pt-2">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={onClearAll}
-                className="text-gray-600 hover:text-gray-800"
-              >
+              <Button variant="outline" size="sm" onClick={onClearAll}>
                 Clear All
               </Button>
             </div>

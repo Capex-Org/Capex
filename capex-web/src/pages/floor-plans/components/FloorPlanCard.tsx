@@ -58,12 +58,11 @@ const FloorPlanCard = ({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex gap-3">
+        <div className="flex gap-3 justify-between">
           <Button
             variant="outline"
             size="default"
             onClick={() => onViewDetails(plan)}
-            className="flex-1 border-amber-600 text-amber-600 hover:bg-amber-50"
           >
             View Details
             <ArrowUpRight />
@@ -72,7 +71,6 @@ const FloorPlanCard = ({
             variant="default"
             size="default"
             onClick={() => onStartEstimate(plan)}
-            className="flex-1 bg-amber-600 hover:bg-amber-700"
           >
             Start Estimate
             <Home />

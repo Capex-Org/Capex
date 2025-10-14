@@ -48,7 +48,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-white ">
+    <section id="contact-section" className=" bg-white ">
       <div>
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -165,7 +165,8 @@ const ContactSection = () => {
 
                 <Button
                   type="submit"
-                  className="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-lg"
+                  className="w-full text-white py-3 rounded-lg"
+                
                 >
                   Request A Quote
                   <ArrowUpRight className="w-4 h-4 ml-2" />

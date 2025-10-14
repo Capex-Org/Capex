@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface ViewGalleryButtonProps {
   buttonText: string;
@@ -13,6 +14,12 @@ const ViewGalleryButton = ({
   delay = 0,
   className = "",
 }: ViewGalleryButtonProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/gallery");
+  };
+
   return (
     <motion.div
       className={className}
@@ -26,6 +33,7 @@ const ViewGalleryButton = ({
       viewport={{ once: true }}
     >
       <Button
+        onClick={handleClick}
         className="bg-primary-600 hover:bg-primary-400 text-white px-6 py-3 rounded-full font-medium transition-all duration-300"
         size="lg"
       >

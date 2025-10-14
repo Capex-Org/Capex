@@ -11,6 +11,17 @@ import recentWork2 from "@/assets/images/recentWork2.webp";
 import recentWork3 from "@/assets/images/recentWork3.webp";
 import CompanyRvBg from "@/assets/images/company-rv-bg.webp";
 
+// Import gallery images
+import gallery1 from "@/assets/images/gallery/gallery-1.webp";
+import gallery2 from "@/assets/images/gallery/gallery-2.webp";
+import gallery3 from "@/assets/images/gallery/gallery-3.webp";
+import gallery4 from "@/assets/images/gallery/gallery-4.webp";
+import gallery5 from "@/assets/images/gallery/gallery-5.webp";
+import gallery6 from "@/assets/images/gallery/gallery-6.webp";
+import gallery7 from "@/assets/images/gallery/gallery-7.webp";
+import gallery8 from "@/assets/images/gallery/gallery-8.webp";
+import gallery9 from "@/assets/images/gallery/gallery-9.webp";
+
 export interface StepOption {
   id: number;
   name: string;
@@ -1610,7 +1621,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Modern Living Room",
     description:
       "Bright open-plan living space with contemporary furniture and natural lighting",
-    image: recentWork1,
+    image: gallery1,
     category: "Vision-Driven Designs",
     tags: ["Living Room", "Modern", "Open Plan"],
     featured: true,
@@ -1620,7 +1631,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Luxury Living Space",
     description:
       "Elegant living room with white sofas, built-in shelving, and decorative ceiling",
-    image: recentWork2,
+    image: gallery2,
     category: "Vision-Driven Designs",
     tags: ["Living Room", "Luxury", "White"],
     featured: true,
@@ -1630,7 +1641,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Minimalist Dining",
     description:
       "Clean dining area with wooden floors and contemporary furniture",
-    image: recentWork3,
+    image: gallery3,
     category: "Vision-Driven Designs",
     tags: ["Dining", "Minimalist", "Wood"],
     featured: false,
@@ -1640,7 +1651,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Modern Kitchen Design",
     description:
       "Contemporary kitchen with sleek appliances and modern fixtures",
-    image: kitchenImg,
+    image: gallery4,
     category: "3D Visualisation",
     tags: ["Kitchen", "Modern", "Appliances"],
     featured: true,
@@ -1649,7 +1660,7 @@ export const galleryItems: GalleryItem[] = [
     id: "5",
     title: "About Us Showcase",
     description: "Professional interior design showcase with elegant finishes",
-    image: aboutusImg,
+    image: gallery5,
     category: "3D Visualisation",
     tags: ["Showcase", "Professional", "Elegant"],
     featured: false,
@@ -1658,7 +1669,7 @@ export const galleryItems: GalleryItem[] = [
     id: "6",
     title: "Luxury Bedroom Suite",
     description: "Premium bedroom design with sophisticated styling",
-    image: bedroomImg,
+    image: gallery6,
     category: "3D Visualisation",
     tags: ["Bedroom", "Luxury", "Premium"],
     featured: true,
@@ -1667,7 +1678,7 @@ export const galleryItems: GalleryItem[] = [
     id: "7",
     title: "Package Design 1",
     description: "Custom interior package with modern aesthetic",
-    image: pk1,
+    image: gallery7,
     category: "Personalised Collaboration",
     tags: ["Package", "Custom", "Modern"],
     featured: false,
@@ -1676,7 +1687,7 @@ export const galleryItems: GalleryItem[] = [
     id: "8",
     title: "Package Design 2",
     description: "Elegant interior package with premium finishes",
-    image: pk2,
+    image: gallery8,
     category: "Personalised Collaboration",
     tags: ["Package", "Elegant", "Premium"],
     featured: true,
@@ -1685,90 +1696,9 @@ export const galleryItems: GalleryItem[] = [
     id: "9",
     title: "Package Design 3",
     description: "Contemporary package design with clean lines",
-    image: pk3,
+    image: gallery9,
     category: "Personalised Collaboration",
     tags: ["Package", "Contemporary", "Clean"],
-    featured: false,
-  },
-  {
-    id: "10",
-    title: "Package Design 4",
-    description: "Luxury package with sophisticated styling",
-    image: pk4,
-    category: "Personalised Collaboration",
-    tags: ["Package", "Luxury", "Sophisticated"],
-    featured: true,
-  },
-  {
-    id: "11",
-    title: "Contemporary Living",
-    description: "Modern living space with clean design principles",
-    image: recentWork1,
-    category: "Vision-Driven Designs",
-    tags: ["Living", "Contemporary", "Clean"],
-    featured: false,
-  },
-  {
-    id: "12",
-    title: "Elegant Dining Room",
-    description: "Sophisticated dining area with premium materials",
-    image: recentWork2,
-    category: "Vision-Driven Designs",
-    tags: ["Dining", "Elegant", "Premium"],
-    featured: false,
-  },
-  {
-    id: "13",
-    title: "Modern Kitchen Island",
-    description: "Contemporary kitchen with central island design",
-    image: kitchenImg,
-    category: "3D Visualisation",
-    tags: ["Kitchen", "Island", "Contemporary"],
-    featured: false,
-  },
-  {
-    id: "14",
-    title: "Professional Office",
-    description: "Modern workspace design for productivity",
-    image: aboutusImg,
-    category: "3D Visualisation",
-    tags: ["Office", "Professional", "Productivity"],
-    featured: false,
-  },
-  {
-    id: "15",
-    title: "Master Bedroom",
-    description: "Spacious master bedroom with luxury amenities",
-    image: bedroomImg,
-    category: "Personalised Collaboration",
-    tags: ["Bedroom", "Master", "Spacious"],
-    featured: false,
-  },
-  {
-    id: "16",
-    title: "Custom Package A",
-    description: "Tailored interior design package for modern living",
-    image: pk1,
-    category: "Personalised Collaboration",
-    tags: ["Custom", "Tailored", "Modern"],
-    featured: false,
-  },
-  {
-    id: "17",
-    title: "Premium Package B",
-    description: "High-end design package with luxury finishes",
-    image: pk2,
-    category: "Personalised Collaboration",
-    tags: ["Premium", "High-end", "Luxury"],
-    featured: false,
-  },
-  {
-    id: "18",
-    title: "Design Package C",
-    description: "Comprehensive design solution for contemporary homes",
-    image: pk3,
-    category: "Personalised Collaboration",
-    tags: ["Design", "Comprehensive", "Contemporary"],
     featured: false,
   },
 ];

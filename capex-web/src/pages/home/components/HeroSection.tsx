@@ -16,12 +16,19 @@ import Feature2 from "@/assets/Frame 1000003044.webp";
 import Feature3 from "@/assets/Frame 1000003042.webp";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 type Feature = { src: string; alt: string; title: string; subtitle: string };
 
 const SimpleScaleLayout: React.FC = () => {
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const handleBookConsultation = () => {
+    // Navigate to company page and scroll to contact section
+    navigate("/company#contact-section");
+  };
 
   const featureColRef = useRef<HTMLDivElement>(null);
   const resizeObserverRef = useRef<ResizeObserver | null>(null);
@@ -190,6 +197,7 @@ const SimpleScaleLayout: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={handleBookConsultation}
               className={`pointer-events-auto bg-white text-black px-4 ${
                 !isMobile ? "sm:ml-30" : ""
               } flex gap-2 py-2 lg:px-6 lg:py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300`}

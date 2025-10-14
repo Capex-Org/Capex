@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Tag, Mail, FileText } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { calculateTotalPrice, getRelevantOrderItems } from "@/lib/appData";
 
 interface OrderSummaryProps {
@@ -84,17 +85,20 @@ const OrderSummary = ({
             </div>
 
             {/* Detailed List */}
-            <button className="w-full flex items-center space-x-3 px-4 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200">
+            <Button
+              variant="outline"
+              className="w-full flex items-center space-x-3 px-4 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200"
+            >
               <FileText className="w-4 h-4 text-gray-500" />
               <span className="text-gray-700 font-medium text-sm">
                 Detailed List
               </span>
-            </button>
+            </Button>
 
             {/* Proceed Button */}
-            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200">
+            <Button size="lg" className="w-full" variant="default">
               Proceed to Checkout
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -162,15 +166,18 @@ const OrderSummary = ({
           </div>
 
           {/* Detailed List */}
-          <button className="w-full flex items-center space-x-3 px-4 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200">
+          <Button
+            variant="outline"
+            className="w-full flex items-center space-x-3 px-4 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200"
+          >
             <FileText className="w-5 h-5 text-gray-500" />
             <span className="text-gray-700 font-medium">Detailed List</span>
-          </button>
+          </Button>
 
           {/* Proceed Button */}
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200">
+          <Button className="w-full" variant="default" size="lg">
             Proceed to Checkout
-          </button>
+          </Button>
         </div>
       </div>
     </div>

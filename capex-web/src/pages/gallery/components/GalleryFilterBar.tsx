@@ -30,7 +30,7 @@ const GalleryFilterBar = ({
                 onClick={() => onCategoryChange(category)}
                 className={`px-4 py-2 rounded-md transition-all ${
                   selectedCategory === category
-                    ? "bg-amber-600 text-white shadow-sm"
+                    ? "bg-primary-600 text-white shadow-sm"
                     : "text-gray-600 hover:text-gray-900 hover:bg-white"
                 }`}
               >
@@ -51,7 +51,7 @@ const GalleryFilterBar = ({
                 onClick={() => onCategoryChange(category)}
                 className={`whitespace-nowrap flex-shrink-0 ${
                   selectedCategory === category
-                    ? "bg-amber-600 text-white border-amber-600"
+                    ? "bg-primary-600 text-white border-primary-600"
                     : "text-gray-600 border-gray-300"
                 }`}
               >

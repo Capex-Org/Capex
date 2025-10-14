@@ -55,7 +55,7 @@ const TestimonialSection = () => {
 
   return (
     <section
-      className="py-16 lg:py-24 relative h-full min-h-[550px] bg-gray-800"
+      className="py-12 lg:py-16 relative h-full min-h-[550px] bg-gray-800"
       style={{
         backgroundImage: `url(${companyRvBg})`,
         backgroundSize: "cover",

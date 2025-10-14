@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import GalleryFilterBar from "./components/GalleryFilterBar";
 import { getGalleryByCategory } from "@/lib/appData";
@@ -9,6 +9,11 @@ const Gallery = () => {
   const [showLoadMore, setShowLoadMore] = useState(true);
   const [visibleItems, setVisibleItems] = useState(9);
   const [isLoading, setIsLoading] = useState(false);
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Filter gallery items
   const filteredItems = useMemo(() => {
@@ -107,7 +112,7 @@ const Gallery = () => {
                               animate={{ opacity: 1, scale: 1 }}
                               transition={{ delay: 0.25 + index * 0.05 }}
                             >
-                              <span className="bg-amber-500 text-white text-xs px-2 py-1 rounded-full font-medium">
+                              <span className="bg-primary-600 text-white text-xs px-2 py-1 rounded-full font-medium">
                                 Featured
                               </span>
                             </motion.div>
@@ -129,7 +134,7 @@ const Gallery = () => {
                     <Button
                       onClick={handleLoadMore}
                       disabled={isLoading}
-                      className="bg-amber-600 hover:bg-amber-700 disabled:bg-amber-400 disabled:cursor-not-allowed text-white px-8 py-3 rounded-lg transition-all duration-200"
+                      className="bg-primary-600 hover:bg-primary-500 disabled:bg-primary-400 disabled:cursor-not-allowed text-white px-8 py-3 rounded-lg transition-all duration-200"
                     >
                       {isLoading ? (
                         <div className="flex items-center gap-2">

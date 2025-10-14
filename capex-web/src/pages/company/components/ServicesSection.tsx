@@ -24,7 +24,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-24 ">
+    <section className="py-12 lg:py-16 ">
       <div>
         <div className="text-center mb-16">
           <motion.h2
@@ -39,7 +39,7 @@ const ServicesSection = () => {
             viewport={{ once: true }}
           >
             Our agency knows work dominates{" "}
-            <span className="text-amber-600">our lives</span>
+            <span className="text-primary-600">our lives</span>
           </motion.h2>
         </div>
 
