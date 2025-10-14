@@ -24,7 +24,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="section-content">
+    <section className="section-content py-12 lg:py-16 ">
       <div>
         <div className="text-center mb-16">
           <motion.h2
