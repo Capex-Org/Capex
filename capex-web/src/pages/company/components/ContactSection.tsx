@@ -48,7 +48,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact-section" className=" bg-white ">
+    <section id="contact-section" className="section-content bg-white ">
       <div>
         {/* Header Section */}
         <div className="text-center mb-12">

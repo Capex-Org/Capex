@@ -61,7 +61,7 @@ const TeamSection = () => {
   ];
 
   return (
-    <section className=" bg-white">
+    <section className="section-content bg-white">
       <div>
         {/* Team Section */}
         <div className="text-center mb-16">
