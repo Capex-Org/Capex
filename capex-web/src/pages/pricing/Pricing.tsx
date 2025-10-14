@@ -16,13 +16,12 @@ const Pricing = () => {
   useEffect(() => {
     const project = getProjectTypeById(selectedProjectType);
     if (project) {
-      // Set default selection for Package step (first step)
+      // Clear all previous selections and set default for Package step (first step)
       const packageStep = project.steps[0];
-      if (packageStep && !selectedItems[packageStep.name]) {
-        setSelectedItems((prev) => ({
-          ...prev,
+      if (packageStep) {
+        setSelectedItems({
           [packageStep.name]: 0, // Select first item (Basic Package)
-        }));
+        });
       }
     }
   }, [selectedProjectType]);
@@ -45,7 +44,7 @@ const Pricing = () => {
 
   return (
     <section className="section-white ">
-      <div className="section-content pt-4">
+      <div className="section-content ">
         <div className="min-h-screen bg-gray-50">
           {/* Mobile Layout */}
           <div className="block lg:hidden">
