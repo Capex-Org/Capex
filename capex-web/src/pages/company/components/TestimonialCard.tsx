@@ -24,7 +24,7 @@ const TestimonialCard = ({
   onNext,
 }: TestimonialCardProps) => {
   return (
-    <div className="bg-white rounded-lg p-6 sm:p-8 shadow-lg min-h-[320px] flex flex-col w-full max-w-[640px] mx-auto overflow-hidden">
+    <div className="bg-white rounded-lg p-6 sm:p-8 shadow-lg min-h-[420px] sm:min-h-[460px] flex flex-col w-full max-w-[640px] mx-auto overflow-hidden">
       {/* Header Section */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center">
